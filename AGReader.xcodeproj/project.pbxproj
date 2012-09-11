@@ -1,0 +1,633 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D86A168415FCD79100B16515 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86A168315FCD79100B16515 /* UIKit.framework */; };
+		D86A168615FCD79100B16515 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86A168515FCD79100B16515 /* Foundation.framework */; };
+		D86A168815FCD79100B16515 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86A168715FCD79100B16515 /* CoreGraphics.framework */; };
+		D86A168E15FCD79100B16515 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D86A168C15FCD79100B16515 /* InfoPlist.strings */; };
+		D86A169015FCD79100B16515 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D86A168F15FCD79100B16515 /* main.m */; };
+		D86A169415FCD79100B16515 /* goshanAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D86A169315FCD79100B16515 /* goshanAppDelegate.m */; };
+		D86A169715FCD79100B16515 /* bookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D86A169615FCD79100B16515 /* bookViewController.m */; };
+		D86A169A15FCD79100B16515 /* bookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D86A169815FCD79100B16515 /* bookViewController.xib */; };
+		D86A16A515FCD79100B16515 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86A16A415FCD79100B16515 /* SenTestingKit.framework */; };
+		D86A16A615FCD79100B16515 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86A168315FCD79100B16515 /* UIKit.framework */; };
+		D86A16A715FCD79100B16515 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86A168515FCD79100B16515 /* Foundation.framework */; };
+		D86A16AF15FCD79100B16515 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D86A16AD15FCD79100B16515 /* InfoPlist.strings */; };
+		D86A16B215FCD79100B16515 /* AGReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D86A16B115FCD79100B16515 /* AGReaderTests.m */; };
+		D87D405A15FF00B100DD18FB /* test_utf8.txt in Resources */ = {isa = PBXBuildFile; fileRef = D87D405915FF00B100DD18FB /* test_utf8.txt */; };
+		D87D406215FF04C000DD18FB /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D87D406115FF04C000DD18FB /* MBProgressHUD.m */; };
+		D87D406D15FF130400DD18FB /* index.ind in Resources */ = {isa = PBXBuildFile; fileRef = D87D406C15FF130400DD18FB /* index.ind */; };
+		D87D40BE15FF452600DD18FB /* indexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D87D40BC15FF452600DD18FB /* indexViewController.m */; };
+		D87D40BF15FF452600DD18FB /* indexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87D40BD15FF452600DD18FB /* indexViewController.xib */; };
+		D87D40C215FF4E7A00DD18FB /* bookIndex.txt in Resources */ = {isa = PBXBuildFile; fileRef = D87D40C015FF4E7A00DD18FB /* bookIndex.txt */; };
+		D87D40C315FF4E7A00DD18FB /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = D87D40C115FF4E7A00DD18FB /* test.png */; };
+		D87D40C515FF547900DD18FB /* indexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87D40C415FF547900DD18FB /* indexCell.xib */; };
+		D8893BA415FD00BB007CAC55 /* libYouMi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BA115FD00BB007CAC55 /* libYouMi.a */; };
+		D8893BA615FD00E0007CAC55 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BA515FD00E0007CAC55 /* SystemConfiguration.framework */; };
+		D8893BA815FD00F0007CAC55 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BA715FD00F0007CAC55 /* CoreLocation.framework */; };
+		D8893BAA15FD00F8007CAC55 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BA915FD00F8007CAC55 /* CoreTelephony.framework */; };
+		D8893BAC15FD0105007CAC55 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BAB15FD0105007CAC55 /* ImageIO.framework */; };
+		D8893BAE15FD0117007CAC55 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BAD15FD0117007CAC55 /* MapKit.framework */; };
+		D8893BB015FD0124007CAC55 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BAF15FD0124007CAC55 /* MessageUI.framework */; };
+		D8893BB215FD0132007CAC55 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BB115FD0132007CAC55 /* QuartzCore.framework */; };
+		D8893BB415FD013A007CAC55 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BB315FD013A007CAC55 /* libsqlite3.0.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D86A16A815FCD79100B16515 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D86A167615FCD79100B16515 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D86A167E15FCD79100B16515;
+			remoteInfo = AGReader;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D86A167F15FCD79100B16515 /* AGReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AGReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D86A168315FCD79100B16515 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D86A168515FCD79100B16515 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D86A168715FCD79100B16515 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D86A168B15FCD79100B16515 /* AGReader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AGReader-Info.plist"; sourceTree = "<group>"; };
+		D86A168D15FCD79100B16515 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D86A168F15FCD79100B16515 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D86A169115FCD79100B16515 /* AGReader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AGReader-Prefix.pch"; sourceTree = "<group>"; };
+		D86A169215FCD79100B16515 /* goshanAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = goshanAppDelegate.h; sourceTree = "<group>"; };
+		D86A169315FCD79100B16515 /* goshanAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = goshanAppDelegate.m; sourceTree = "<group>"; };
+		D86A169515FCD79100B16515 /* bookViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bookViewController.h; sourceTree = "<group>"; };
+		D86A169615FCD79100B16515 /* bookViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bookViewController.m; sourceTree = "<group>"; };
+		D86A169915FCD79100B16515 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/bookViewController.xib; sourceTree = "<group>"; };
+		D86A16A315FCD79100B16515 /* AGReaderTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AGReaderTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D86A16A415FCD79100B16515 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		D86A16AC15FCD79100B16515 /* AGReaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AGReaderTests-Info.plist"; sourceTree = "<group>"; };
+		D86A16AE15FCD79100B16515 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D86A16B015FCD79100B16515 /* AGReaderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGReaderTests.h; sourceTree = "<group>"; };
+		D86A16B115FCD79100B16515 /* AGReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AGReaderTests.m; sourceTree = "<group>"; };
+		D87D405915FF00B100DD18FB /* test_utf8.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_utf8.txt; sourceTree = "<group>"; };
+		D87D406015FF04C000DD18FB /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		D87D406115FF04C000DD18FB /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		D87D406C15FF130400DD18FB /* index.ind */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.ind; sourceTree = "<group>"; };
+		D87D40BB15FF452600DD18FB /* indexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = indexViewController.h; sourceTree = "<group>"; };
+		D87D40BC15FF452600DD18FB /* indexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = indexViewController.m; sourceTree = "<group>"; };
+		D87D40BD15FF452600DD18FB /* indexViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = indexViewController.xib; sourceTree = "<group>"; };
+		D87D40C015FF4E7A00DD18FB /* bookIndex.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bookIndex.txt; sourceTree = "<group>"; };
+		D87D40C115FF4E7A00DD18FB /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
+		D87D40C415FF547900DD18FB /* indexCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = indexCell.xib; sourceTree = "<group>"; };
+		D8893BA115FD00BB007CAC55 /* libYouMi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libYouMi.a; sourceTree = "<group>"; };
+		D8893BA215FD00BB007CAC55 /* YouMiDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiDelegateProtocol.h; sourceTree = "<group>"; };
+		D8893BA315FD00BB007CAC55 /* YouMiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiView.h; sourceTree = "<group>"; };
+		D8893BA515FD00E0007CAC55 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D8893BA715FD00F0007CAC55 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D8893BA915FD00F8007CAC55 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		D8893BAB15FD0105007CAC55 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		D8893BAD15FD0117007CAC55 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D8893BAF15FD0124007CAC55 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		D8893BB115FD0132007CAC55 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D8893BB315FD013A007CAC55 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D86A167C15FCD79100B16515 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8893BB415FD013A007CAC55 /* libsqlite3.0.dylib in Frameworks */,
+				D8893BB215FD0132007CAC55 /* QuartzCore.framework in Frameworks */,
+				D8893BB015FD0124007CAC55 /* MessageUI.framework in Frameworks */,
+				D8893BAE15FD0117007CAC55 /* MapKit.framework in Frameworks */,
+				D8893BAC15FD0105007CAC55 /* ImageIO.framework in Frameworks */,
+				D8893BAA15FD00F8007CAC55 /* CoreTelephony.framework in Frameworks */,
+				D8893BA815FD00F0007CAC55 /* CoreLocation.framework in Frameworks */,
+				D8893BA615FD00E0007CAC55 /* SystemConfiguration.framework in Frameworks */,
+				D86A168415FCD79100B16515 /* UIKit.framework in Frameworks */,
+				D86A168615FCD79100B16515 /* Foundation.framework in Frameworks */,
+				D86A168815FCD79100B16515 /* CoreGraphics.framework in Frameworks */,
+				D8893BA415FD00BB007CAC55 /* libYouMi.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D86A169F15FCD79100B16515 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D86A16A515FCD79100B16515 /* SenTestingKit.framework in Frameworks */,
+				D86A16A615FCD79100B16515 /* UIKit.framework in Frameworks */,
+				D86A16A715FCD79100B16515 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D86A167415FCD79100B16515 = {
+			isa = PBXGroup;
+			children = (
+				D86A168915FCD79100B16515 /* AGReader */,
+				D86A16AA15FCD79100B16515 /* AGReaderTests */,
+				D86A168215FCD79100B16515 /* Frameworks */,
+				D86A168015FCD79100B16515 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D86A168015FCD79100B16515 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D86A167F15FCD79100B16515 /* AGReader.app */,
+				D86A16A315FCD79100B16515 /* AGReaderTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D86A168215FCD79100B16515 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8893BB315FD013A007CAC55 /* libsqlite3.0.dylib */,
+				D8893BB115FD0132007CAC55 /* QuartzCore.framework */,
+				D8893BAF15FD0124007CAC55 /* MessageUI.framework */,
+				D8893BAD15FD0117007CAC55 /* MapKit.framework */,
+				D8893BAB15FD0105007CAC55 /* ImageIO.framework */,
+				D8893BA915FD00F8007CAC55 /* CoreTelephony.framework */,
+				D8893BA715FD00F0007CAC55 /* CoreLocation.framework */,
+				D8893BA515FD00E0007CAC55 /* SystemConfiguration.framework */,
+				D86A168315FCD79100B16515 /* UIKit.framework */,
+				D86A168515FCD79100B16515 /* Foundation.framework */,
+				D86A168715FCD79100B16515 /* CoreGraphics.framework */,
+				D86A16A415FCD79100B16515 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D86A168915FCD79100B16515 /* AGReader */ = {
+			isa = PBXGroup;
+			children = (
+				D86A169215FCD79100B16515 /* goshanAppDelegate.h */,
+				D86A169315FCD79100B16515 /* goshanAppDelegate.m */,
+				D87D406815FF0B8F00DD18FB /* Controllers */,
+				D87D406915FF0B9800DD18FB /* Views */,
+				D87D406615FF0B6C00DD18FB /* Resources */,
+				D87D405F15FF04C000DD18FB /* Plugins */,
+				D87D406715FF0B7500DD18FB /* YouMiAd */,
+				D86A168A15FCD79100B16515 /* Supporting Files */,
+			);
+			path = AGReader;
+			sourceTree = "<group>";
+		};
+		D86A168A15FCD79100B16515 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D86A168B15FCD79100B16515 /* AGReader-Info.plist */,
+				D86A168C15FCD79100B16515 /* InfoPlist.strings */,
+				D86A168F15FCD79100B16515 /* main.m */,
+				D86A169115FCD79100B16515 /* AGReader-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D86A16AA15FCD79100B16515 /* AGReaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				D86A16B015FCD79100B16515 /* AGReaderTests.h */,
+				D86A16B115FCD79100B16515 /* AGReaderTests.m */,
+				D86A16AB15FCD79100B16515 /* Supporting Files */,
+			);
+			path = AGReaderTests;
+			sourceTree = "<group>";
+		};
+		D86A16AB15FCD79100B16515 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D86A16AC15FCD79100B16515 /* AGReaderTests-Info.plist */,
+				D86A16AD15FCD79100B16515 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D87D405F15FF04C000DD18FB /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				D87D406015FF04C000DD18FB /* MBProgressHUD.h */,
+				D87D406115FF04C000DD18FB /* MBProgressHUD.m */,
+			);
+			name = Plugins;
+			path = plugins;
+			sourceTree = "<group>";
+		};
+		D87D406615FF0B6C00DD18FB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D87D40C015FF4E7A00DD18FB /* bookIndex.txt */,
+				D87D40C115FF4E7A00DD18FB /* test.png */,
+				D87D406C15FF130400DD18FB /* index.ind */,
+				D87D405915FF00B100DD18FB /* test_utf8.txt */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D87D406715FF0B7500DD18FB /* YouMiAd */ = {
+			isa = PBXGroup;
+			children = (
+				D8893BA115FD00BB007CAC55 /* libYouMi.a */,
+				D8893BA215FD00BB007CAC55 /* YouMiDelegateProtocol.h */,
+				D8893BA315FD00BB007CAC55 /* YouMiView.h */,
+			);
+			name = YouMiAd;
+			sourceTree = "<group>";
+		};
+		D87D406815FF0B8F00DD18FB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D87D40BB15FF452600DD18FB /* indexViewController.h */,
+				D87D40BC15FF452600DD18FB /* indexViewController.m */,
+				D86A169515FCD79100B16515 /* bookViewController.h */,
+				D86A169615FCD79100B16515 /* bookViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D87D406915FF0B9800DD18FB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D87D40BD15FF452600DD18FB /* indexViewController.xib */,
+				D86A169815FCD79100B16515 /* bookViewController.xib */,
+				D87D40C415FF547900DD18FB /* indexCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D86A167E15FCD79100B16515 /* AGReader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D86A16B515FCD79100B16515 /* Build configuration list for PBXNativeTarget "AGReader" */;
+			buildPhases = (
+				D86A167B15FCD79100B16515 /* Sources */,
+				D86A167C15FCD79100B16515 /* Frameworks */,
+				D86A167D15FCD79100B16515 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AGReader;
+			productName = AGReader;
+			productReference = D86A167F15FCD79100B16515 /* AGReader.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D86A16A215FCD79100B16515 /* AGReaderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D86A16B815FCD79100B16515 /* Build configuration list for PBXNativeTarget "AGReaderTests" */;
+			buildPhases = (
+				D86A169E15FCD79100B16515 /* Sources */,
+				D86A169F15FCD79100B16515 /* Frameworks */,
+				D86A16A015FCD79100B16515 /* Resources */,
+				D86A16A115FCD79100B16515 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D86A16A915FCD79100B16515 /* PBXTargetDependency */,
+			);
+			name = AGReaderTests;
+			productName = AGReaderTests;
+			productReference = D86A16A315FCD79100B16515 /* AGReaderTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D86A167615FCD79100B16515 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = D86A167915FCD79100B16515 /* Build configuration list for PBXProject "AGReader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D86A167415FCD79100B16515;
+			productRefGroup = D86A168015FCD79100B16515 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D86A167E15FCD79100B16515 /* AGReader */,
+				D86A16A215FCD79100B16515 /* AGReaderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D86A167D15FCD79100B16515 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D86A168E15FCD79100B16515 /* InfoPlist.strings in Resources */,
+				D86A169A15FCD79100B16515 /* bookViewController.xib in Resources */,
+				D87D405A15FF00B100DD18FB /* test_utf8.txt in Resources */,
+				D87D406D15FF130400DD18FB /* index.ind in Resources */,
+				D87D40BF15FF452600DD18FB /* indexViewController.xib in Resources */,
+				D87D40C215FF4E7A00DD18FB /* bookIndex.txt in Resources */,
+				D87D40C315FF4E7A00DD18FB /* test.png in Resources */,
+				D87D40C515FF547900DD18FB /* indexCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D86A16A015FCD79100B16515 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D86A16AF15FCD79100B16515 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D86A16A115FCD79100B16515 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D86A167B15FCD79100B16515 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D86A169015FCD79100B16515 /* main.m in Sources */,
+				D86A169415FCD79100B16515 /* goshanAppDelegate.m in Sources */,
+				D86A169715FCD79100B16515 /* bookViewController.m in Sources */,
+				D87D406215FF04C000DD18FB /* MBProgressHUD.m in Sources */,
+				D87D40BE15FF452600DD18FB /* indexViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D86A169E15FCD79100B16515 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D86A16B215FCD79100B16515 /* AGReaderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D86A16A915FCD79100B16515 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D86A167E15FCD79100B16515 /* AGReader */;
+			targetProxy = D86A16A815FCD79100B16515 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D86A168C15FCD79100B16515 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D86A168D15FCD79100B16515 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D86A169815FCD79100B16515 /* bookViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D86A169915FCD79100B16515 /* en */,
+			);
+			name = bookViewController.xib;
+			sourceTree = "<group>";
+		};
+		D86A16AD15FCD79100B16515 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D86A16AE15FCD79100B16515 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D86A16B315FCD79100B16515 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D86A16B415FCD79100B16515 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D86A16B615FCD79100B16515 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/MobWin/AdsMoGoAdapter/build/Framework\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/MobWin/build/Framework\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AGReader/AGReader-Prefix.pch";
+				INFOPLIST_FILE = "AGReader/AGReader-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/AGReader/AdsMoGoSDK\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/AdChina\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/Adermob\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/AdMob\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/Adwo/lib\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/AirAd\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/Baidu\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/DoMob\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/Greystripe\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/IZP\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/JumpTap\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/MillennialMedia\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/MobiSage\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/MobWin\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/SmartMad\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/UM\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/Vpon/apon\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/Vpon\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/Vpon/ZBarSDK\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/WeiQian\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/WiYun/lib\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/Wooboo\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/YouMi\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/ZestADZ\"",
+					"\"$(SRCROOT)/AGReader\"",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D86A16B715FCD79100B16515 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/MobWin/AdsMoGoAdapter/build/Framework\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/MobWin/build/Framework\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AGReader/AGReader-Prefix.pch";
+				INFOPLIST_FILE = "AGReader/AGReader-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/AGReader/AdsMoGoSDK\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/AdChina\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/Adermob\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/AdMob\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/Adwo/lib\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/AirAd\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/Baidu\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/DoMob\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/Greystripe\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/IZP\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/JumpTap\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/MillennialMedia\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/MobiSage\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/MobWin\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/SmartMad\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/UM\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/Vpon/apon\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/Vpon\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/Vpon/ZBarSDK\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/WeiQian\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/WiYun/lib\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/Wooboo\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/YouMi\"",
+					"\"$(SRCROOT)/AGReader/AdNetworkLibs/ZestADZ\"",
+					"\"$(SRCROOT)/AGReader\"",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D86A16B915FCD79100B16515 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AGReader.app/AGReader";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AGReader/AGReader-Prefix.pch";
+				INFOPLIST_FILE = "AGReaderTests/AGReaderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		D86A16BA15FCD79100B16515 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AGReader.app/AGReader";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AGReader/AGReader-Prefix.pch";
+				INFOPLIST_FILE = "AGReaderTests/AGReaderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D86A167915FCD79100B16515 /* Build configuration list for PBXProject "AGReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D86A16B315FCD79100B16515 /* Debug */,
+				D86A16B415FCD79100B16515 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D86A16B515FCD79100B16515 /* Build configuration list for PBXNativeTarget "AGReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D86A16B615FCD79100B16515 /* Debug */,
+				D86A16B715FCD79100B16515 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D86A16B815FCD79100B16515 /* Build configuration list for PBXNativeTarget "AGReaderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D86A16B915FCD79100B16515 /* Debug */,
+				D86A16BA15FCD79100B16515 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D86A167615FCD79100B16515 /* Project object */;
+}
