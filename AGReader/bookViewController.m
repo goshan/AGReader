@@ -7,6 +7,7 @@
 //
 
 #import "bookViewController.h"
+#import "Utils.h"
 
 int currentPage = 0;
 float fontValue = 13.0f;
@@ -119,13 +120,13 @@ int textViewWidth = 320;
     if (self) {
         // Custom initialization
         _book = book;
-        NSString *content = [self loadStringFrom:[_book objectForKey:@"resource"] ofType:@"txt"];
+        NSString *content = [self loadStringFrom:[_book objectForKey:Utils.FILENAME] ofType:@"txt"];
         
         //gen index
         //[self genPageIndex:content toFile:@"index.txt"];
         
         //normal use
-        NSDictionary *pageIndex = [self loadPageIndexFrom:[_book objectForKey:@"pageIndex"] ofType:@"ind"];
+        NSDictionary *pageIndex = [self loadPageIndexFrom:[_book objectForKey:Utils.PAGEINDEX] ofType:@"ind"];
         _views = [self genTextViewsWithContent:content withIndex:pageIndex];
         [pageIndex release];
         NSLog(@"page total num is: %d", _views.count);

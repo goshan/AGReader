@@ -13,11 +13,6 @@
 #import "MBProgressHUD.h"
 
 @interface indexViewController : UIViewController
-{
-    NSArray *bookIndex;
-    bookViewController *bookView;
-    MBProgressHUD* loadingSpinner;
-}
 
 @property(retain, nonatomic) NSArray *bookIndex;
 

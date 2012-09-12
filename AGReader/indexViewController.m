@@ -7,6 +7,7 @@
 //
 
 #import "indexViewController.h"
+#import "Utils.h"
 
 BOOL currentViewIsImage;
 
@@ -32,20 +33,20 @@ BOOL currentViewIsImage;
         text = [text substringFromIndex:range.location+range.length];
         
         NSRange lineRange = [line rangeOfString:@"\t"];
-        int id = [[line substringToIndex:lineRange.location] intValue];
+        int bookId = [[line substringToIndex:lineRange.location] intValue];
         line = [line substringFromIndex:lineRange.location+lineRange.length];
         lineRange = [line rangeOfString:@"\t"];
         NSString *bookName = [line substringToIndex:lineRange.location];
         line = [line substringFromIndex:lineRange.location+lineRange.length];
         lineRange = [line rangeOfString:@"\t"];
-        NSString *resource = [line substringToIndex:lineRange.location];
+        NSString *fileName = [line substringToIndex:lineRange.location];
         line = [line substringFromIndex:lineRange.location+lineRange.length];
         lineRange = [line rangeOfString:@"\t"];
         NSString *pageIndex = [line substringToIndex:lineRange.location];
         line = [line substringFromIndex:lineRange.location+lineRange.length];
-        NSString *bookImage = [NSString stringWithString:line];
+        NSString *imageFile = [NSString stringWithString:line];
         
-        NSDictionary *book = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:id], @"id", bookName, @"bookName", resource, @"resource", pageIndex, @"pageIndex", bookImage, @"bookImage", nil];
+        NSDictionary *book = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:bookId], Utils.BOOKID, bookName, Utils.BOOKNAME, fileName, Utils.FILENAME, pageIndex, Utils.PAGEINDEX, imageFile, Utils.IMAGEFILE, nil];
         [index addObject:book];
     }
     return index;

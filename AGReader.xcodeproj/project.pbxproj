@@ -20,6 +20,8 @@
 		D86A16A715FCD79100B16515 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86A168515FCD79100B16515 /* Foundation.framework */; };
 		D86A16AF15FCD79100B16515 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D86A16AD15FCD79100B16515 /* InfoPlist.strings */; };
 		D86A16B215FCD79100B16515 /* AGReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D86A16B115FCD79100B16515 /* AGReaderTests.m */; };
+		D86F3EA21600B6F90021483F /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D86F3EA11600B6F90021483F /* Utils.m */; };
+		D86F3EA51600B70B0021483F /* bookMark.m in Sources */ = {isa = PBXBuildFile; fileRef = D86F3EA41600B70B0021483F /* bookMark.m */; };
 		D87A4E341600510C009961E3 /* imageIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D87A4E321600510C009961E3 /* imageIndexViewController.m */; };
 		D87A4E351600510C009961E3 /* imageIndexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87A4E331600510C009961E3 /* imageIndexViewController.xib */; };
 		D87A4E3816005581009961E3 /* cheast_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D87A4E3716005581009961E3 /* cheast_bg.png */; };
@@ -74,6 +76,10 @@
 		D86A16AE15FCD79100B16515 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D86A16B015FCD79100B16515 /* AGReaderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGReaderTests.h; sourceTree = "<group>"; };
 		D86A16B115FCD79100B16515 /* AGReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AGReaderTests.m; sourceTree = "<group>"; };
+		D86F3EA01600B6F90021483F /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		D86F3EA11600B6F90021483F /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		D86F3EA31600B70B0021483F /* bookMark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookMark.h; sourceTree = "<group>"; };
+		D86F3EA41600B70B0021483F /* bookMark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bookMark.m; sourceTree = "<group>"; };
 		D87A4E311600510C009961E3 /* imageIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imageIndexViewController.h; sourceTree = "<group>"; };
 		D87A4E321600510C009961E3 /* imageIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = imageIndexViewController.m; sourceTree = "<group>"; };
 		D87A4E331600510C009961E3 /* imageIndexViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = imageIndexViewController.xib; sourceTree = "<group>"; };
@@ -182,6 +188,7 @@
 				D86A169315FCD79100B16515 /* goshanAppDelegate.m */,
 				D87D406815FF0B8F00DD18FB /* Controllers */,
 				D87D406915FF0B9800DD18FB /* Views */,
+				D86F3E9F1600B5B90021483F /* Models */,
 				D87D406615FF0B6C00DD18FB /* Resources */,
 				D87D405F15FF04C000DD18FB /* Plugins */,
 				D87D406715FF0B7500DD18FB /* YouMiAd */,
@@ -218,6 +225,17 @@
 				D86A16AD15FCD79100B16515 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D86F3E9F1600B5B90021483F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D86F3EA01600B6F90021483F /* Utils.h */,
+				D86F3EA11600B6F90021483F /* Utils.m */,
+				D86F3EA31600B70B0021483F /* bookMark.h */,
+				D86F3EA41600B70B0021483F /* bookMark.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		D87D405F15FF04C000DD18FB /* Plugins */ = {
@@ -401,6 +419,8 @@
 				D87D40BE15FF452600DD18FB /* indexViewController.m in Sources */,
 				D87A4E341600510C009961E3 /* imageIndexViewController.m in Sources */,
 				D87A4E3C16005A1C009961E3 /* tableIndexViewController.m in Sources */,
+				D86F3EA21600B6F90021483F /* Utils.m in Sources */,
+				D86F3EA51600B70B0021483F /* bookMark.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

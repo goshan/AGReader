@@ -17,38 +17,6 @@
 @synthesize navController = _navController;
 
 
-- (NSArray *)loadBookIndexFrom:(NSString *)resource ofType:(NSString *)type{
-    NSMutableArray *index = [[NSMutableArray alloc] init];
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:resource ofType:type];
-    NSString *text  = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-    while (1){
-        NSRange range = [text rangeOfString:@"\n"];
-        if (range.location == NSNotFound){
-            break;
-        }
-        NSString *line = [text substringToIndex:range.location];
-        text = [text substringFromIndex:range.location+range.length];
-        
-        NSRange lineRange = [line rangeOfString:@"\t"];
-        int id = [[line substringToIndex:lineRange.location] intValue];
-        line = [line substringFromIndex:lineRange.location+lineRange.length];
-        lineRange = [line rangeOfString:@"\t"];
-        NSString *bookName = [line substringToIndex:lineRange.location];
-        line = [line substringFromIndex:lineRange.location+lineRange.length];
-        lineRange = [line rangeOfString:@"\t"];
-        NSString *resource = [line substringToIndex:lineRange.location];
-        line = [line substringFromIndex:lineRange.location+lineRange.length];
-        lineRange = [line rangeOfString:@"\t"];
-        NSString *pageIndex = [line substringToIndex:lineRange.location];
-        line = [line substringFromIndex:lineRange.location+lineRange.length];
-        NSString *bookImage = [NSString stringWithString:line];
-        
-        NSDictionary *book = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:id], @"id", bookName, @"bookName", resource, @"resource", pageIndex, @"pageIndex", bookImage, @"bookImage", nil];
-        [index addObject:book];
-    }
-    return index;
-}
-
 
 - (void)dealloc
 {

@@ -9,6 +9,7 @@
 #import "tableIndexViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "indexViewController.h"
+#import "Utils.h"
 
 @implementation tableIndexViewController
 
@@ -109,8 +110,8 @@
     UIImageView* bookImage = (UIImageView*)[cell viewWithTag:1];
     UILabel* bookName = (UILabel*)[cell viewWithTag:2];
     
-    [bookImage setImage:[UIImage imageNamed:[book objectForKey:@"bookImage"]]];
-    bookName.text = [NSString stringWithString:[book objectForKey:@"bookName"]];
+    [bookImage setImage:[UIImage imageNamed:[book objectForKey:Utils.IMAGEFILE]]];
+    bookName.text = [NSString stringWithString:[book objectForKey:Utils.BOOKNAME]];
     
     //make image round
     CALayer *layer = bookImage.layer;
@@ -124,7 +125,7 @@
 {
     [_parent showSpinner];
     NSDictionary *book = [_bookIndex objectAtIndex:indexPath.row];
-    if(_parent.bookView && [_parent.bookView.book objectForKey:@"id"] == [book objectForKey:@"id"]){
+    if(_parent.bookView && [_parent.bookView.book objectForKey:Utils.BOOKID] == [book objectForKey:Utils.BOOKID]){
         [_parent showBookViewController];
     }
     else {

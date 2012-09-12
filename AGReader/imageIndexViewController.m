@@ -9,6 +9,7 @@
 #import "imageIndexViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "indexViewController.h"
+#import "Utils.h"
 
 
 
@@ -40,7 +41,7 @@ int colSpace = 60;
     UIButton *image = sender;
     NSDictionary *book = [_bookIndex objectAtIndex:image.tag];
     [_parent showSpinner];
-    if(_parent.bookView && [_parent.bookView.book objectForKey:@"id"] == [book objectForKey:@"id"]){
+    if(_parent.bookView && [_parent.bookView.book objectForKey:Utils.BOOKID] == [book objectForKey:Utils.BOOKID]){
         [_parent showBookViewController];
     }
     else {
@@ -52,7 +53,7 @@ int colSpace = 60;
     for (int i=0; i<_bookIndex.count; i++){
         NSArray *rowAndCol = [self getRowAndColByIndex:i];
         UIButton *image = [[UIButton alloc] initWithFrame:CGRectMake(colStart+[[rowAndCol objectAtIndex:1] intValue]*(colSpace+imageWidth), rowStart+[[rowAndCol objectAtIndex:0] intValue]*(rowSpace+imageHeight), imageWidth, imageHeight)];
-        [image setBackgroundImage:[UIImage imageNamed:[[_bookIndex objectAtIndex:i] objectForKey:@"bookImage"]] forState:UIControlStateNormal];
+        [image setBackgroundImage:[UIImage imageNamed:[[_bookIndex objectAtIndex:i] objectForKey:Utils.IMAGEFILE]] forState:UIControlStateNormal];
         image.tag = i;
         
         //make image round
