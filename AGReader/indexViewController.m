@@ -7,14 +7,17 @@
 //
 
 #import "indexViewController.h"
-#import <QuartzCore/QuartzCore.h>
+
+BOOL currentViewIsImage;
 
 @implementation indexViewController
 
+@synthesize bookView = _bookView;
 @synthesize bookIndex = _bookIndex;
-@synthesize tableView = _tableView;
-@synthesize bookViewController = _bookViewController;
 @synthesize loadingSpinner = _loadingSpinner;
+@synthesize contentView = _contentView;
+@synthesize tableViewController = _tableViewController;
+@synthesize imageViewController = _imageViewController;
 
 - (NSArray *)loadBookIndexFrom:(NSString *)resource ofType:(NSString *)type{
     NSMutableArray *index = [[NSMutableArray alloc] init];
@@ -50,26 +53,49 @@
 
 - (void)showSpinner {
     //display loading spinner when adding cell
-    if(!self.loadingSpinner) {
-        self.loadingSpinner = [[MBProgressHUD alloc] initWithView:self.view];
-        self.loadingSpinner.labelText = @"小说加载中...";
-        [self.view addSubview:self.loadingSpinner];
+    if(!_loadingSpinner) {
+        _loadingSpinner = [[MBProgressHUD alloc] initWithView:self.view];
+        _loadingSpinner.labelText = @"小说加载中...";
+        
     }
-    [self.loadingSpinner show:YES];
+    [self.view addSubview:_loadingSpinner];
+    [_loadingSpinner show:YES];
 }
 
-- (void) showBookViewController:(NSDictionary *)book{
-    _bookViewController=[[bookViewController alloc] initWithNibName:@"bookViewController" bundle:nil bookInfo:book];
+- (void) showBookViewController{
     [_loadingSpinner hide:YES];
-    [self.navigationController pushViewController:_bookViewController animated:YES];
+    [self.navigationController pushViewController:_bookView animated:YES];
 }
 
-- (void)setExtraCellLineHidden: (UITableView *)tableView
-{
-    UIView *view =[ [UIView alloc]init];
-    view.backgroundColor = [UIColor clearColor];
-    [tableView setTableFooterView:view];
-    [view release];
+- (void) showBookViewControllerByInitWith:(NSDictionary *)book{
+    _bookView=[[bookViewController alloc] initWithNibName:@"bookViewController" bundle:nil bookInfo:book];
+    [_loadingSpinner hide:YES];
+    [self.navigationController pushViewController:_bookView animated:YES];
+}
+
+- (void) changeViewMode{
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [UIView beginAnimations:nil context:context];
+    [UIView setAnimationTransition: UIViewAnimationTransitionFlipFromLeft forView:_contentView cache:YES];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:0.4];
+    
+    if(currentViewIsImage) {
+        currentViewIsImage = NO;
+        [_imageViewController.view removeFromSuperview];
+        [_contentView addSubview:_tableViewController.view];
+        [_tableViewController.view setUserInteractionEnabled:YES];
+        self.navigationItem.rightBarButtonItem.title = @"书架";
+    }
+    else {
+        currentViewIsImage = YES;
+        [_tableViewController.view removeFromSuperview];
+        [_contentView addSubview:_imageViewController.view];
+        [_imageViewController.view setUserInteractionEnabled:YES];
+        self.navigationItem.rightBarButtonItem.title = @"列表";
+    }
+    
+    [UIView commitAnimations]; 
 }
 
 #pragma mark - View lifecycle
@@ -80,6 +106,8 @@
     if (self) {
         // Custom initialization
         _bookIndex = [self loadBookIndexFrom:@"bookIndex" ofType:@"txt"];
+        _tableViewController = [[tableIndexViewController alloc] initWithNibName:@"tableIndexViewController" bundle:nil bookIndex:_bookIndex parentViewController:self];
+        _imageViewController = [[imageIndexViewController alloc] initWithNibName:@"imageIndexViewController" bundle:nil bookIndex:_bookIndex parentViewController:self];
     }
     return self;
 }
@@ -97,13 +125,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"Book Index";
-    //hidden seperator line for empty cell
-    [self setExtraCellLineHidden:_tableView];
+    [_contentView addSubview:_imageViewController.view];
+    currentViewIsImage = YES;
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"列表" style:UIBarButtonItemStyleBordered target:self action:@selector(changeViewMode)] autorelease];
 }
 
 - (void)viewDidUnload
 {
-    [self setTableView:nil];
+    [self setContentView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -116,70 +145,13 @@
 }
 
 - (void)dealloc {
-    [_tableView release];
+    [_bookIndex release];
+    [_bookView release];
+    [_loadingSpinner release];
+    [_tableViewController release];
+    [_imageViewController release];
+    [_contentView release];
     [super dealloc];
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return [_bookIndex count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"indexCell_id";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        NSArray* objects =  [[NSBundle  mainBundle] loadNibNamed:@"indexCell" owner:nil options:nil];
-        cell = [objects objectAtIndex:0];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;    
-    }
-    
-    NSDictionary *book = [_bookIndex objectAtIndex:indexPath.row];
-    
-    // Set up the cell...
-    UIImageView* bookImage = (UIImageView*)[cell viewWithTag:1];
-    UILabel* bookName = (UILabel*)[cell viewWithTag:2];
-    
-    [bookImage setImage:[UIImage imageNamed:[book objectForKey:@"bookImage"]]];
-    bookName.text = [NSString stringWithString:[book objectForKey:@"bookName"]];
-
-    //make image round
-    CALayer *layer = bookImage.layer;
-    layer.masksToBounds = YES;
-    layer.cornerRadius = 5.0;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [self showSpinner];
-    NSDictionary *book = [_bookIndex objectAtIndex:indexPath.row];
-    if(_bookViewController && [_bookViewController.book objectForKey:@"id"] == [book objectForKey:@"id"]){
-        //[self performSelector:@selector(initBookViewController:) withObject:book afterDelay:0.0];
-        //_bookViewController=[[bookViewController alloc]initWithNibName:@"bookViewController" bundle:nil resource:[book objectForKey:@"resource"] index:[book objectForKey:@"bookIndex"]];
-        [_loadingSpinner hide:YES];
-        [self.navigationController pushViewController:_bookViewController animated:YES];
-    }
-    else {
-        [self performSelector:@selector(showBookViewController:) withObject:book afterDelay:0.0];
-    }
-    
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 70.0;
 }
 
 @end

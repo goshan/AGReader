@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "YouMiView.h"
-#import "MBProgressHUD.h"
 
 @interface bookViewController : UIViewController
 
