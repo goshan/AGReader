@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D8218E951601A12700759128 /* bookMarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8218E931601A12700759128 /* bookMarkViewController.m */; };
+		D8218E961601A12700759128 /* bookMarkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8218E941601A12700759128 /* bookMarkViewController.xib */; };
 		D86A168415FCD79100B16515 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86A168315FCD79100B16515 /* UIKit.framework */; };
 		D86A168615FCD79100B16515 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86A168515FCD79100B16515 /* Foundation.framework */; };
 		D86A168815FCD79100B16515 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86A168715FCD79100B16515 /* CoreGraphics.framework */; };
@@ -21,7 +23,6 @@
 		D86A16AF15FCD79100B16515 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D86A16AD15FCD79100B16515 /* InfoPlist.strings */; };
 		D86A16B215FCD79100B16515 /* AGReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D86A16B115FCD79100B16515 /* AGReaderTests.m */; };
 		D86F3EA21600B6F90021483F /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D86F3EA11600B6F90021483F /* Utils.m */; };
-		D86F3EA51600B70B0021483F /* bookMark.m in Sources */ = {isa = PBXBuildFile; fileRef = D86F3EA41600B70B0021483F /* bookMark.m */; };
 		D87A4E341600510C009961E3 /* imageIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D87A4E321600510C009961E3 /* imageIndexViewController.m */; };
 		D87A4E351600510C009961E3 /* imageIndexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87A4E331600510C009961E3 /* imageIndexViewController.xib */; };
 		D87A4E3816005581009961E3 /* cheast_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D87A4E3716005581009961E3 /* cheast_bg.png */; };
@@ -44,6 +45,8 @@
 		D8893BB015FD0124007CAC55 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BAF15FD0124007CAC55 /* MessageUI.framework */; };
 		D8893BB215FD0132007CAC55 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BB115FD0132007CAC55 /* QuartzCore.framework */; };
 		D8893BB415FD013A007CAC55 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BB315FD013A007CAC55 /* libsqlite3.0.dylib */; };
+		D8F409BB1601FC4400E60BFE /* markCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F409BA1601FC4400E60BFE /* markCell.xib */; };
+		D8F409C31602128100E60BFE /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F409C21602128100E60BFE /* Toast+UIView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D8218E921601A12700759128 /* bookMarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookMarkViewController.h; sourceTree = "<group>"; };
+		D8218E931601A12700759128 /* bookMarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bookMarkViewController.m; sourceTree = "<group>"; };
+		D8218E941601A12700759128 /* bookMarkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = bookMarkViewController.xib; sourceTree = "<group>"; };
 		D86A167F15FCD79100B16515 /* AGReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AGReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D86A168315FCD79100B16515 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D86A168515FCD79100B16515 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -78,8 +84,6 @@
 		D86A16B115FCD79100B16515 /* AGReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AGReaderTests.m; sourceTree = "<group>"; };
 		D86F3EA01600B6F90021483F /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		D86F3EA11600B6F90021483F /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
-		D86F3EA31600B70B0021483F /* bookMark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookMark.h; sourceTree = "<group>"; };
-		D86F3EA41600B70B0021483F /* bookMark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bookMark.m; sourceTree = "<group>"; };
 		D87A4E311600510C009961E3 /* imageIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imageIndexViewController.h; sourceTree = "<group>"; };
 		D87A4E321600510C009961E3 /* imageIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = imageIndexViewController.m; sourceTree = "<group>"; };
 		D87A4E331600510C009961E3 /* imageIndexViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = imageIndexViewController.xib; sourceTree = "<group>"; };
@@ -108,6 +112,9 @@
 		D8893BAF15FD0124007CAC55 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		D8893BB115FD0132007CAC55 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D8893BB315FD013A007CAC55 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		D8F409BA1601FC4400E60BFE /* markCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = markCell.xib; sourceTree = "<group>"; };
+		D8F409C11602128100E60BFE /* Toast+UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Toast+UIView.h"; sourceTree = "<group>"; };
+		D8F409C21602128100E60BFE /* Toast+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Toast+UIView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,8 +239,6 @@
 			children = (
 				D86F3EA01600B6F90021483F /* Utils.h */,
 				D86F3EA11600B6F90021483F /* Utils.m */,
-				D86F3EA31600B70B0021483F /* bookMark.h */,
-				D86F3EA41600B70B0021483F /* bookMark.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -241,6 +246,8 @@
 		D87D405F15FF04C000DD18FB /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				D8F409C11602128100E60BFE /* Toast+UIView.h */,
+				D8F409C21602128100E60BFE /* Toast+UIView.m */,
 				D87D406015FF04C000DD18FB /* MBProgressHUD.h */,
 				D87D406115FF04C000DD18FB /* MBProgressHUD.m */,
 			);
@@ -281,6 +288,8 @@
 				D87A4E321600510C009961E3 /* imageIndexViewController.m */,
 				D86A169515FCD79100B16515 /* bookViewController.h */,
 				D86A169615FCD79100B16515 /* bookViewController.m */,
+				D8218E921601A12700759128 /* bookMarkViewController.h */,
+				D8218E931601A12700759128 /* bookMarkViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -292,7 +301,9 @@
 				D87A4E3B16005A1C009961E3 /* tableIndexViewController.xib */,
 				D87A4E331600510C009961E3 /* imageIndexViewController.xib */,
 				D86A169815FCD79100B16515 /* bookViewController.xib */,
+				D8218E941601A12700759128 /* bookMarkViewController.xib */,
 				D87D40C415FF547900DD18FB /* indexCell.xib */,
+				D8F409BA1601FC4400E60BFE /* markCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -378,6 +389,8 @@
 				D87A4E351600510C009961E3 /* imageIndexViewController.xib in Resources */,
 				D87A4E3816005581009961E3 /* cheast_bg.png in Resources */,
 				D87A4E3D16005A1C009961E3 /* tableIndexViewController.xib in Resources */,
+				D8218E961601A12700759128 /* bookMarkViewController.xib in Resources */,
+				D8F409BB1601FC4400E60BFE /* markCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,7 +433,8 @@
 				D87A4E341600510C009961E3 /* imageIndexViewController.m in Sources */,
 				D87A4E3C16005A1C009961E3 /* tableIndexViewController.m in Sources */,
 				D86F3EA21600B6F90021483F /* Utils.m in Sources */,
-				D86F3EA51600B70B0021483F /* bookMark.m in Sources */,
+				D8218E951601A12700759128 /* bookMarkViewController.m in Sources */,
+				D8F409C31602128100E60BFE /* Toast+UIView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

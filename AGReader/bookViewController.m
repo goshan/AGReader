@@ -8,6 +8,7 @@
 
 #import "bookViewController.h"
 #import "Utils.h"
+#import "Toast+UIView.h"
 
 int currentPage = 0;
 float fontValue = 13.0f;
@@ -16,7 +17,8 @@ int textViewWidth = 320;
 
 @implementation bookViewController
 
-@synthesize pageNum = _pageNum;
+@synthesize initPageNum = _initPageNum;
+@synthesize marks = _marks;
 @synthesize adView = _adView;
 @synthesize scrollView = _scrollView;
 @synthesize book = _book;
@@ -113,14 +115,43 @@ int textViewWidth = 320;
     return views;
 }
 
+- (int)getCurrentPageNum{
+    return _scrollView.contentOffset.x/textViewWidth;
+}
+
+- (void)saveMarks{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];//获得需要的路径    
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"bookMark.txt"];
+    NSMutableString *str = [[NSMutableString alloc] init];
+    for (int i=0; i<_marks.count; i++){
+        NSDictionary *mark = [_marks objectAtIndex:i];
+        [str appendFormat:@"%@\t%@\t%@\n", [mark objectForKey:Utils.MARKBOOKID], [mark objectForKey:Utils.MARKPAGENUM], [mark objectForKey:Utils.MARKCONTENT]];
+    }
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    [data writeToFile:filePath atomically:NO];
+}
+
+- (void)addBookMark{
+    int currentPage = [self getCurrentPageNum];
+    UITextView *view = [_views objectAtIndex:currentPage];
+    NSString *content = [view.text substringToIndex:39];
+    content = [content stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
+    NSDictionary *mark = [[NSDictionary alloc] initWithObjectsAndKeys:[_book objectForKey:Utils.BOOKID], Utils.MARKBOOKID, [NSString stringWithFormat:@"%d", currentPage], Utils.MARKPAGENUM, content, Utils.MARKCONTENT, nil];
+    [_marks addObject:mark];
+    [self saveMarks];
+    [self.view makeToast:@"收藏成功" duration:2.0 position:@"center" title:@""];
+}
+
 #define in .h file
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookInfo:(NSDictionary *)book pageNum:(int)pageNum{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookInfo:(NSDictionary *)book pageNum:(int)pageNum marks:(NSMutableArray *)marks{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
         _book = book;
-        _pageNum = pageNum;
+        _initPageNum = pageNum;
+        _marks = marks;
         NSString *content = [self loadStringFrom:[_book objectForKey:Utils.FILENAME] ofType:@"txt"];
         
         //gen index
@@ -159,7 +190,10 @@ int textViewWidth = 320;
         [_scrollView addSubview:[_views objectAtIndex:i]];
         [[_views objectAtIndex:i] release];
     }
-    [_scrollView setContentOffset:CGPointMake((textViewWidth*_pageNum), 0)];
+    [_scrollView setContentOffset:CGPointMake((textViewWidth*_initPageNum), 0)];
+    
+    //set rightNavItem
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"收藏" style:UIBarButtonItemStyleBordered target:self action:@selector(addBookMark)] autorelease];
     
     // adView1
     _adView = [[YouMiView alloc] initWithContentSizeIdentifier:YouMiBannerContentSizeIdentifier320x50 delegate:nil];

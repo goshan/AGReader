@@ -10,11 +10,14 @@
 #import "tableIndexViewController.h"
 #import "imageIndexViewController.h"
 #import "bookViewController.h"
+#import "bookMarkViewController.h"
 #import "MBProgressHUD.h"
 
 @interface indexViewController : UIViewController
 
 @property(retain, nonatomic) NSArray *bookIndex;
+
+@property(retain, nonatomic) NSMutableArray *bookMarks;
 
 @property(retain, nonatomic) bookViewController *bookView;
 
@@ -25,6 +28,8 @@
 @property(retain, nonatomic) tableIndexViewController *tableViewController;
 
 @property(retain, nonatomic) imageIndexViewController *imageViewController;
+
+@property(retain, nonatomic) bookMarkViewController *markViewController;
 
 
 - (void)showSpinner;

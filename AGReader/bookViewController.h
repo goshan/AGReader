@@ -11,7 +11,9 @@
 
 @interface bookViewController : UIViewController
 
-@property int pageNum;
+@property int initPageNum;
+
+@property(retain, nonatomic) NSMutableArray *marks;
 
 @property(retain, nonatomic) YouMiView *adView;
 
@@ -22,6 +24,6 @@
 @property(retain, nonatomic) NSArray *views;
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookInfo:(NSDictionary *)book pageNum:(int)pageNum;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookInfo:(NSDictionary *)book pageNum:(int)pageNum marks:(NSMutableArray *)marks;
 
 @end
