@@ -69,7 +69,7 @@ BOOL currentViewIsImage;
 }
 
 - (void) showBookViewControllerByInitWith:(NSDictionary *)book{
-    _bookView=[[bookViewController alloc] initWithNibName:@"bookViewController" bundle:nil bookInfo:book];
+    _bookView=[[bookViewController alloc] initWithNibName:@"bookViewController" bundle:nil bookInfo:book pageNum:0];
     [_loadingSpinner hide:YES];
     [self.navigationController pushViewController:_bookView animated:YES];
 }
@@ -86,14 +86,14 @@ BOOL currentViewIsImage;
         [_imageViewController.view removeFromSuperview];
         [_contentView addSubview:_tableViewController.view];
         [_tableViewController.view setUserInteractionEnabled:YES];
-        self.navigationItem.rightBarButtonItem.title = @"书架";
+        self.navigationItem.leftBarButtonItem.title = @"书架";
     }
     else {
         currentViewIsImage = YES;
         [_tableViewController.view removeFromSuperview];
         [_contentView addSubview:_imageViewController.view];
         [_imageViewController.view setUserInteractionEnabled:YES];
-        self.navigationItem.rightBarButtonItem.title = @"列表";
+        self.navigationItem.leftBarButtonItem.title = @"列表";
     }
     
     [UIView commitAnimations]; 
@@ -128,7 +128,7 @@ BOOL currentViewIsImage;
     self.title = @"Book Index";
     [_contentView addSubview:_imageViewController.view];
     currentViewIsImage = YES;
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"列表" style:UIBarButtonItemStyleBordered target:self action:@selector(changeViewMode)] autorelease];
+    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"列表" style:UIBarButtonItemStyleBordered target:self action:@selector(changeViewMode)] autorelease];
 }
 
 - (void)viewDidUnload

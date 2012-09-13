@@ -11,6 +11,8 @@
 
 @interface bookViewController : UIViewController
 
+@property int pageNum;
+
 @property(retain, nonatomic) YouMiView *adView;
 
 @property(retain, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -20,6 +22,6 @@
 @property(retain, nonatomic) NSArray *views;
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookInfo:(NSDictionary *)book;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookInfo:(NSDictionary *)book pageNum:(int)pageNum;
 
 @end

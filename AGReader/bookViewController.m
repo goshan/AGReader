@@ -16,6 +16,7 @@ int textViewWidth = 320;
 
 @implementation bookViewController
 
+@synthesize pageNum = _pageNum;
 @synthesize adView = _adView;
 @synthesize scrollView = _scrollView;
 @synthesize book = _book;
@@ -106,7 +107,6 @@ int textViewWidth = 320;
         view.text = text;
         [view setFont:font];
         [view setEditable:NO];
-        //[view setScrollEnabled:NO];
         [views addObject:view];
         start = end;
     }
@@ -115,11 +115,12 @@ int textViewWidth = 320;
 
 #define in .h file
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookInfo:(NSDictionary *)book{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookInfo:(NSDictionary *)book pageNum:(int)pageNum{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
         _book = book;
+        _pageNum = pageNum;
         NSString *content = [self loadStringFrom:[_book objectForKey:Utils.FILENAME] ofType:@"txt"];
         
         //gen index
@@ -144,9 +145,8 @@ int textViewWidth = 320;
 
 - (void)viewDidLoad
 {
-    self.title = @"test";
+    self.title = [_book objectForKey:Utils.BOOKNAME];
     [super viewDidLoad];
-    
     _scrollView.backgroundColor = [UIColor whiteColor];
     _scrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
     _scrollView.clipsToBounds = YES;
@@ -159,6 +159,7 @@ int textViewWidth = 320;
         [_scrollView addSubview:[_views objectAtIndex:i]];
         [[_views objectAtIndex:i] release];
     }
+    [_scrollView setContentOffset:CGPointMake((textViewWidth*_pageNum), 0)];
     
     // adView1
     _adView = [[YouMiView alloc] initWithContentSizeIdentifier:YouMiBannerContentSizeIdentifier320x50 delegate:nil];
