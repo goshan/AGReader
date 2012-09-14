@@ -7,18 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "bookIndex.h"
 
 @class indexViewController;
 
 @interface tableIndexViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
-@property(retain, nonatomic) NSArray *bookIndex;
+@property(retain, nonatomic) bookIndex *bookIndex;
 
 @property(retain, nonatomic) indexViewController *parent;
 
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookIndex:(NSArray *)index parentViewController:(indexViewController *)parent;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookIndex:(bookIndex *)index parentViewController:(indexViewController *)parent;
 
 
 

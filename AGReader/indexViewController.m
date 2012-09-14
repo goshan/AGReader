@@ -22,37 +22,6 @@ BOOL currentViewIsImage;
 @synthesize imageViewController = _imageViewController;
 @synthesize markViewController = _markViewController;
 
-- (NSArray *)loadBookIndexFrom:(NSString *)resource ofType:(NSString *)type{
-    NSMutableArray *index = [[NSMutableArray alloc] init];
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:resource ofType:type];
-    NSString *text  = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-    while (1){
-        NSRange range = [text rangeOfString:@"\n"];
-        if (range.location == NSNotFound){
-            break;
-        }
-        NSString *line = [text substringToIndex:range.location];
-        text = [text substringFromIndex:range.location+range.length];
-        
-        NSRange lineRange = [line rangeOfString:@"\t"];
-        int bookId = [[line substringToIndex:lineRange.location] intValue];
-        line = [line substringFromIndex:lineRange.location+lineRange.length];
-        lineRange = [line rangeOfString:@"\t"];
-        NSString *bookName = [line substringToIndex:lineRange.location];
-        line = [line substringFromIndex:lineRange.location+lineRange.length];
-        lineRange = [line rangeOfString:@"\t"];
-        NSString *fileName = [line substringToIndex:lineRange.location];
-        line = [line substringFromIndex:lineRange.location+lineRange.length];
-        lineRange = [line rangeOfString:@"\t"];
-        NSString *pageIndex = [line substringToIndex:lineRange.location];
-        line = [line substringFromIndex:lineRange.location+lineRange.length];
-        NSString *imageFile = [NSString stringWithString:line];
-        
-        NSDictionary *book = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:bookId], Utils.BOOKID, bookName, Utils.BOOKNAME, fileName, Utils.FILENAME, pageIndex, Utils.PAGEINDEX, imageFile, Utils.IMAGEFILE, nil];
-        [index addObject:book];
-    }
-    return index;
-}
 
 - (void)showSpinner {
     //display loading spinner when adding cell
@@ -113,7 +82,7 @@ BOOL currentViewIsImage;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        _bookIndex = [self loadBookIndexFrom:@"bookIndex" ofType:@"txt"];
+        _bookIndex = [[bookIndex alloc] initWithFile:@"bookIndex.txt"];
         _bookMarks = [[bookMarks alloc] initWithFile:@"bookMark.txt" andBookIndex:_bookIndex];
         _tableViewController = [[tableIndexViewController alloc] initWithNibName:@"tableIndexViewController" bundle:nil bookIndex:_bookIndex parentViewController:self];
         _imageViewController = [[imageIndexViewController alloc] initWithNibName:@"imageIndexViewController" bundle:nil bookIndex:_bookIndex parentViewController:self];

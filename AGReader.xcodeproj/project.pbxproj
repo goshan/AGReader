@@ -46,6 +46,7 @@
 		D8893BB215FD0132007CAC55 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BB115FD0132007CAC55 /* QuartzCore.framework */; };
 		D8893BB415FD013A007CAC55 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BB315FD013A007CAC55 /* libsqlite3.0.dylib */; };
 		D8CDEA331602D17C008DAF2E /* bookMarks.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CDEA321602D17C008DAF2E /* bookMarks.m */; };
+		D8CDEA371602DBBA008DAF2E /* bookIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CDEA361602DBBA008DAF2E /* bookIndex.m */; };
 		D8F409BB1601FC4400E60BFE /* markCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F409BA1601FC4400E60BFE /* markCell.xib */; };
 		D8F409C31602128100E60BFE /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F409C21602128100E60BFE /* Toast+UIView.m */; };
 /* End PBXBuildFile section */
@@ -115,6 +116,8 @@
 		D8893BB315FD013A007CAC55 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		D8CDEA311602D17C008DAF2E /* bookMarks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookMarks.h; sourceTree = "<group>"; };
 		D8CDEA321602D17C008DAF2E /* bookMarks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bookMarks.m; sourceTree = "<group>"; };
+		D8CDEA351602DBBA008DAF2E /* bookIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookIndex.h; sourceTree = "<group>"; };
+		D8CDEA361602DBBA008DAF2E /* bookIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bookIndex.m; sourceTree = "<group>"; };
 		D8F409BA1601FC4400E60BFE /* markCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = markCell.xib; sourceTree = "<group>"; };
 		D8F409C11602128100E60BFE /* Toast+UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Toast+UIView.h"; sourceTree = "<group>"; };
 		D8F409C21602128100E60BFE /* Toast+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Toast+UIView.m"; sourceTree = "<group>"; };
@@ -242,6 +245,8 @@
 			children = (
 				D86F3EA01600B6F90021483F /* Utils.h */,
 				D86F3EA11600B6F90021483F /* Utils.m */,
+				D8CDEA351602DBBA008DAF2E /* bookIndex.h */,
+				D8CDEA361602DBBA008DAF2E /* bookIndex.m */,
 				D8CDEA311602D17C008DAF2E /* bookMarks.h */,
 				D8CDEA321602D17C008DAF2E /* bookMarks.m */,
 			);
@@ -441,6 +446,7 @@
 				D8218E951601A12700759128 /* bookMarkViewController.m in Sources */,
 				D8F409C31602128100E60BFE /* Toast+UIView.m in Sources */,
 				D8CDEA331602D17C008DAF2E /* bookMarks.m in Sources */,
+				D8CDEA371602DBBA008DAF2E /* bookIndex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

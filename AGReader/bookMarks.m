@@ -14,7 +14,7 @@
 @synthesize elems = _elems;
 
 
-- (NSMutableArray *)loadBookMarkFrom:(NSString *)filename withBookIndex:(NSArray *)index{
+- (NSMutableArray *)loadBookMarkFrom:(NSString *)filename withBookIndex:(bookIndex *)index{
     NSMutableArray *marks = [[NSMutableArray alloc] init];
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -47,8 +47,8 @@
     return marks;
 }
 
-- (bookMarks *)initWithFile:(NSString *)filename andBookIndex:(NSArray *)index{
-    [super init];
+- (bookMarks *)initWithFile:(NSString *)filename andBookIndex:(bookIndex *)index{
+    self = [super init];
     if (self){
         _elems = [self loadBookMarkFrom:filename withBookIndex:index];
     }

@@ -46,7 +46,7 @@
 
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookMark:(bookMarks *)marks bookIndex:(NSArray *)index
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookMark:(bookMarks *)marks bookIndex:(bookIndex *)index
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -127,7 +127,7 @@
     UILabel* pageName = (UILabel*)[cell viewWithTag:2];
     UILabel* content = (UILabel*)[cell viewWithTag:3];
     
-    NSDictionary *bookInfo = [_index objectAtIndex:[[mark objectForKey:Utils.MARKBOOKID] intValue]];
+    NSDictionary *bookInfo = [_index bookInfoAtIndex:[[mark objectForKey:Utils.MARKBOOKID] intValue]];
     bookName.text = [bookInfo objectForKey:Utils.BOOKNAME];
     pageName.text = [NSString stringWithFormat:@"第%d页", [[mark objectForKey:Utils.MARKPAGENUM] intValue]+1];
     content.text = [[mark objectForKey:Utils.MARKCONTENT] stringByAppendingString:@"..."];
@@ -140,7 +140,7 @@
 {
     [self showSpinner];
     NSDictionary *mark = [_marks markAtIndex:indexPath.row];
-    NSDictionary *book = [_index objectAtIndex:[[mark objectForKey:Utils.MARKBOOKID] intValue]];
+    NSDictionary *book = [_index bookInfoAtIndex:[[mark objectForKey:Utils.MARKBOOKID] intValue]];
     NSArray *markInfo = [NSArray arrayWithObjects:book, [mark objectForKey:Utils.MARKPAGENUM], nil];
     [self performSelector:@selector(showBookViewControllerByInitWith:) withObject:markInfo afterDelay:0.0];
 }

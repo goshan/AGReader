@@ -10,6 +10,7 @@
 #import "MBProgressHUD.h"
 #import "bookViewController.h"
 #import "bookMarks.h"
+#import "bookIndex.h"
 
 @interface bookMarkViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
@@ -17,10 +18,10 @@
 @property(retain, nonatomic) bookViewController *bookView;
 
 @property(retain, nonatomic) bookMarks *marks;
-@property(retain, nonatomic) NSArray *index;
+@property(retain, nonatomic) bookIndex *index;
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookMark:(bookMarks *)marks bookIndex:(NSArray *)index;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookMark:(bookMarks *)marks bookIndex:(bookIndex *)index;
 
 @end

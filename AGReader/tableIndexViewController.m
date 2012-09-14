@@ -27,7 +27,7 @@
 }
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookIndex:(NSArray *)index parentViewController:(indexViewController *)parent
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookIndex:(bookIndex *)index parentViewController:(indexViewController *)parent
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -104,7 +104,7 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;    
     }
     
-    NSDictionary *book = [_bookIndex objectAtIndex:indexPath.row];
+    NSDictionary *book = [_bookIndex bookInfoAtIndex:indexPath.row];
     
     // Set up the cell...
     UIImageView* bookImage = (UIImageView*)[cell viewWithTag:1];
@@ -124,7 +124,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [_parent showSpinner];
-    NSDictionary *book = [_bookIndex objectAtIndex:indexPath.row];
+    NSDictionary *book = [_bookIndex bookInfoAtIndex:indexPath.row];
     if(_parent.bookView && [_parent.bookView.book objectForKey:Utils.BOOKID] == [book objectForKey:Utils.BOOKID]){
         [_parent showBookViewController];
     }

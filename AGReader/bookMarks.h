@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "bookIndex.h"
 
 @interface bookMarks : NSObject
 
 @property(retain, nonatomic) NSMutableArray *elems;
 
-- (bookMarks *)initWithFile:(NSString *)filename andBookIndex:(NSArray *)index;
+- (bookMarks *)initWithFile:(NSString *)filename andBookIndex:(bookIndex *)index;
 - (NSDictionary *)markAtIndex:(int)index;
 - (void)addMark:(NSDictionary *)mark;
 - (void)removeMarkAtIndex:(int)index;
