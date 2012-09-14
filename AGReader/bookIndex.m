@@ -40,7 +40,6 @@
         NSString *pageIndex = [line substringToIndex:lineRange.location];
         line = [line substringFromIndex:lineRange.location+lineRange.length];
         NSString *imageFile = [NSString stringWithString:line];
-        
         NSDictionary *book = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:bookId], Utils.BOOKID, bookName, Utils.BOOKNAME, fileName, Utils.FILENAME, pageIndex, Utils.PAGEINDEX, imageFile, Utils.IMAGEFILE, nil];
         [index addObject:book];
     }

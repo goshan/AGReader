@@ -102,7 +102,7 @@ BOOL currentViewIsImage;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"Book Index";
+    self.title = @"图书库";
     [_contentView addSubview:_imageViewController.view];
     currentViewIsImage = YES;
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"列表" style:UIBarButtonItemStyleBordered target:self action:@selector(changeViewMode)] autorelease];

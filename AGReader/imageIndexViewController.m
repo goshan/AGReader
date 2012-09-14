@@ -10,13 +10,13 @@
 #import "indexViewController.h"
 
 
-int colPerRow = 2;
+int colPerRow = 3;
 int imageHeight = 70;
 int imageWidth = 70;
 int rowStart = 11;
-int colStart = 60;
+int colStart = 20;
 int rowSpace = 14;
-int colSpace = 60;
+int colSpace = 35;
 
 @implementation imageIndexViewController
 
