@@ -10,7 +10,7 @@
 
 
 int currentPage = 0;
-float fontValue = 13.0f;
+float fontValue = 15.0f;
 int textViewHeight = 350;
 int textViewWidth = 320;
 
@@ -30,43 +30,6 @@ int textViewWidth = 320;
     NSString *filePath = [[NSBundle mainBundle] pathForResource:resource ofType:type];
     NSString *content  = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     return content;
-}
-
-- (int) getEndWith:(NSString *)text From:(int)start{
-    UIFont *font = [UIFont boldSystemFontOfSize:fontValue];
-    CGSize textViewSize = CGSizeMake(textViewWidth-16.0, textViewHeight-16.0);
-    NSString *temp = [[NSString alloc] init];
-    for (int i=start; i<text.length; i++){
-        temp = [temp stringByAppendingFormat:@"%@", [text substringWithRange:NSMakeRange(i, 1)]];
-        CGSize size = [temp sizeWithFont:font constrainedToSize:textViewSize lineBreakMode:UILineBreakModeWordWrap];
-        if (size.height > textViewSize.height){
-            [temp release];
-            return i;
-        }
-    }
-    [temp release];
-    return text.length;
-}
-
-- (void)genPageIndex:(NSString *)text toFile:(NSString *)filename{
-    NSString *indexContent = [[NSString alloc] init];
-    int page = 0;
-    int start = 0;
-    int end = 0;
-    while (end < text.length) {
-        end = [self getEndWith:text From:start];
-        indexContent = [indexContent stringByAppendingFormat:@"%d\t%d\t%d\n", page, start, end];
-        NSLog(@"^^^^^^%d     %d    %d", page, start, end);
-        page ++;
-        start = end;
-    }
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];//获得需要的路径    
-    NSLog(@"file directory is: %@", documentsDirectory);
-    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:filename];
-    NSData *data = [indexContent dataUsingEncoding:NSUTF8StringEncoding];
-    [data writeToFile:filePath atomically:NO];
-    [indexContent release];
 }
 
 - (NSDictionary *)loadPageIndexFrom:(NSString *)resource ofType:(NSString *)type{
@@ -138,11 +101,6 @@ int textViewWidth = 320;
         _initPageNum = pageNum;
         _marks = marks;
         NSString *content = [self loadStringFrom:[_book objectForKey:Utils.FILENAME] ofType:@"txt"];
-        
-        //gen index
-        //[self genPageIndex:content toFile:@"index.txt"];
-        
-        //normal use
         NSDictionary *pageIndex = [self loadPageIndexFrom:[_book objectForKey:Utils.PAGEINDEX] ofType:@"ind"];
         _views = [self genTextViewsWithContent:content withIndex:pageIndex];
         [pageIndex release];

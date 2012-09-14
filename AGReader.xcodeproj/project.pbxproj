@@ -30,7 +30,6 @@
 		D87A4E3D16005A1C009961E3 /* tableIndexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87A4E3B16005A1C009961E3 /* tableIndexViewController.xib */; };
 		D87D405A15FF00B100DD18FB /* test_utf8.txt in Resources */ = {isa = PBXBuildFile; fileRef = D87D405915FF00B100DD18FB /* test_utf8.txt */; };
 		D87D406215FF04C000DD18FB /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D87D406115FF04C000DD18FB /* MBProgressHUD.m */; };
-		D87D406D15FF130400DD18FB /* index.ind in Resources */ = {isa = PBXBuildFile; fileRef = D87D406C15FF130400DD18FB /* index.ind */; };
 		D87D40BE15FF452600DD18FB /* indexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D87D40BC15FF452600DD18FB /* indexViewController.m */; };
 		D87D40BF15FF452600DD18FB /* indexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87D40BD15FF452600DD18FB /* indexViewController.xib */; };
 		D87D40C215FF4E7A00DD18FB /* bookIndex.txt in Resources */ = {isa = PBXBuildFile; fileRef = D87D40C015FF4E7A00DD18FB /* bookIndex.txt */; };
@@ -45,6 +44,7 @@
 		D8893BB015FD0124007CAC55 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BAF15FD0124007CAC55 /* MessageUI.framework */; };
 		D8893BB215FD0132007CAC55 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BB115FD0132007CAC55 /* QuartzCore.framework */; };
 		D8893BB415FD013A007CAC55 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BB315FD013A007CAC55 /* libsqlite3.0.dylib */; };
+		D8BDD3DA1602F807000C3D1B /* test_utf8_index.ind in Resources */ = {isa = PBXBuildFile; fileRef = D8BDD3D91602F807000C3D1B /* test_utf8_index.ind */; };
 		D8CDEA331602D17C008DAF2E /* bookMarks.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CDEA321602D17C008DAF2E /* bookMarks.m */; };
 		D8CDEA371602DBBA008DAF2E /* bookIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CDEA361602DBBA008DAF2E /* bookIndex.m */; };
 		D8F409BB1601FC4400E60BFE /* markCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F409BA1601FC4400E60BFE /* markCell.xib */; };
@@ -96,7 +96,6 @@
 		D87D405915FF00B100DD18FB /* test_utf8.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_utf8.txt; sourceTree = "<group>"; };
 		D87D406015FF04C000DD18FB /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		D87D406115FF04C000DD18FB /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		D87D406C15FF130400DD18FB /* index.ind */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.ind; sourceTree = "<group>"; };
 		D87D40BB15FF452600DD18FB /* indexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = indexViewController.h; sourceTree = "<group>"; };
 		D87D40BC15FF452600DD18FB /* indexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = indexViewController.m; sourceTree = "<group>"; };
 		D87D40BD15FF452600DD18FB /* indexViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = indexViewController.xib; sourceTree = "<group>"; };
@@ -114,6 +113,7 @@
 		D8893BAF15FD0124007CAC55 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		D8893BB115FD0132007CAC55 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D8893BB315FD013A007CAC55 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		D8BDD3D91602F807000C3D1B /* test_utf8_index.ind */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_utf8_index.ind; sourceTree = "<group>"; };
 		D8CDEA311602D17C008DAF2E /* bookMarks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookMarks.h; sourceTree = "<group>"; };
 		D8CDEA321602D17C008DAF2E /* bookMarks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bookMarks.m; sourceTree = "<group>"; };
 		D8CDEA351602DBBA008DAF2E /* bookIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookIndex.h; sourceTree = "<group>"; };
@@ -271,7 +271,7 @@
 				D87A4E3716005581009961E3 /* cheast_bg.png */,
 				D87D40C015FF4E7A00DD18FB /* bookIndex.txt */,
 				D87D40C115FF4E7A00DD18FB /* test.png */,
-				D87D406C15FF130400DD18FB /* index.ind */,
+				D8BDD3D91602F807000C3D1B /* test_utf8_index.ind */,
 				D87D405915FF00B100DD18FB /* test_utf8.txt */,
 			);
 			name = Resources;
@@ -391,7 +391,6 @@
 				D86A168E15FCD79100B16515 /* InfoPlist.strings in Resources */,
 				D86A169A15FCD79100B16515 /* bookViewController.xib in Resources */,
 				D87D405A15FF00B100DD18FB /* test_utf8.txt in Resources */,
-				D87D406D15FF130400DD18FB /* index.ind in Resources */,
 				D87D40BF15FF452600DD18FB /* indexViewController.xib in Resources */,
 				D87D40C215FF4E7A00DD18FB /* bookIndex.txt in Resources */,
 				D87D40C315FF4E7A00DD18FB /* test.png in Resources */,
@@ -401,6 +400,7 @@
 				D87A4E3D16005A1C009961E3 /* tableIndexViewController.xib in Resources */,
 				D8218E961601A12700759128 /* bookMarkViewController.xib in Resources */,
 				D8F409BB1601FC4400E60BFE /* markCell.xib in Resources */,
+				D8BDD3DA1602F807000C3D1B /* test_utf8_index.ind in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

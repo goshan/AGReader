@@ -25,10 +25,6 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     
-    //gen index
-    //bookViewController *viewController = [[[bookViewController alloc] initWithNibName:@"bookViewController" bundle:nil resource:@"test_utf8" index:@"index"] autorelease];
-    
-    //normal user
     indexViewController *viewController = [[indexViewController alloc] initWithNibName:@"indexViewController" bundle:nil];
     _navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     [self.window addSubview:_navController.view];
