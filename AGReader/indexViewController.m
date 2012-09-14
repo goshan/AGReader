@@ -54,39 +54,6 @@ BOOL currentViewIsImage;
     return index;
 }
 
-- (NSMutableArray *)loadBookMarkFrom:(NSString *)filename withBookIndex:(NSArray *)index{
-    NSMutableArray *marks = [[NSMutableArray alloc] init];
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];//获得需要的路径    
-    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:filename];
-    NSFileManager *fm = [NSFileManager defaultManager];
-    if(![fm fileExistsAtPath:filePath]){
-        return marks;
-    }
-    NSString *content  = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-    while (1){
-        NSRange range = [content rangeOfString:@"\n"];
-        if (range.location == NSNotFound){
-            break;
-        }
-        NSString *line = [content substringToIndex:range.location];
-        content = [content substringFromIndex:range.location+range.length];
-        
-        NSRange lineRange = [line rangeOfString:@"\t"];
-        NSString *bookId = [line substringToIndex:lineRange.location];
-        line = [line substringFromIndex:lineRange.location+lineRange.length];
-        lineRange = [line rangeOfString:@"\t"];
-        NSString *pageNum = [line substringToIndex:lineRange.location];
-        line = [line substringFromIndex:lineRange.location+lineRange.length];
-        NSString *content = line;
-        
-        NSDictionary *mark = [[NSDictionary alloc] initWithObjectsAndKeys:bookId, Utils.MARKBOOKID, pageNum, Utils.MARKPAGENUM, content, Utils.MARKCONTENT, nil];
-        [marks addObject:mark];
-    }
-    return marks;
-}
-
 - (void)showSpinner {
     //display loading spinner when adding cell
     if(!_loadingSpinner) {
@@ -147,7 +114,7 @@ BOOL currentViewIsImage;
     if (self) {
         // Custom initialization
         _bookIndex = [self loadBookIndexFrom:@"bookIndex" ofType:@"txt"];
-        _bookMarks = [self loadBookMarkFrom:@"bookMark.txt" withBookIndex:_bookIndex];
+        _bookMarks = [[bookMarks alloc] initWithFile:@"bookMark.txt" andBookIndex:_bookIndex];
         _tableViewController = [[tableIndexViewController alloc] initWithNibName:@"tableIndexViewController" bundle:nil bookIndex:_bookIndex parentViewController:self];
         _imageViewController = [[imageIndexViewController alloc] initWithNibName:@"imageIndexViewController" bundle:nil bookIndex:_bookIndex parentViewController:self];
     }

@@ -119,33 +119,19 @@ int textViewWidth = 320;
     return _scrollView.contentOffset.x/textViewWidth;
 }
 
-- (void)saveMarks{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];//获得需要的路径    
-    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"bookMark.txt"];
-    NSMutableString *str = [[NSMutableString alloc] init];
-    for (int i=0; i<_marks.count; i++){
-        NSDictionary *mark = [_marks objectAtIndex:i];
-        [str appendFormat:@"%@\t%@\t%@\n", [mark objectForKey:Utils.MARKBOOKID], [mark objectForKey:Utils.MARKPAGENUM], [mark objectForKey:Utils.MARKCONTENT]];
-    }
-    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
-    [data writeToFile:filePath atomically:NO];
-}
-
 - (void)addBookMark{
     int currentPage = [self getCurrentPageNum];
     UITextView *view = [_views objectAtIndex:currentPage];
     NSString *content = [view.text substringToIndex:39];
     content = [content stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
     NSDictionary *mark = [[NSDictionary alloc] initWithObjectsAndKeys:[_book objectForKey:Utils.BOOKID], Utils.MARKBOOKID, [NSString stringWithFormat:@"%d", currentPage], Utils.MARKPAGENUM, content, Utils.MARKCONTENT, nil];
-    [_marks addObject:mark];
-    [self saveMarks];
+    [_marks addMark:mark];
     [self.view makeToast:@"收藏成功" duration:2.0 position:@"center" title:@""];
 }
 
 #define in .h file
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookInfo:(NSDictionary *)book pageNum:(int)pageNum marks:(NSMutableArray *)marks{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookInfo:(NSDictionary *)book pageNum:(int)pageNum marks:(bookMarks *)marks{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization

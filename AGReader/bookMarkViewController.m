@@ -45,7 +45,8 @@
 
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookMark:(NSMutableArray *)marks bookIndex:(NSArray *)index
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookMark:(bookMarks *)marks bookIndex:(NSArray *)index
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -119,7 +120,7 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;    
     }
     
-    NSDictionary *mark = [_marks objectAtIndex:indexPath.row];
+    NSDictionary *mark = [_marks markAtIndex:indexPath.row];
     
     // Set up the cell...
     UILabel* bookName = (UILabel*)[cell viewWithTag:1];
@@ -128,7 +129,7 @@
     
     NSDictionary *bookInfo = [_index objectAtIndex:[[mark objectForKey:Utils.MARKBOOKID] intValue]];
     bookName.text = [bookInfo objectForKey:Utils.BOOKNAME];
-    pageName.text = [NSString stringWithFormat:@"第%@页", [mark objectForKey:Utils.MARKPAGENUM]];
+    pageName.text = [NSString stringWithFormat:@"第%d页", [[mark objectForKey:Utils.MARKPAGENUM] intValue]+1];
     content.text = [[mark objectForKey:Utils.MARKCONTENT] stringByAppendingString:@"..."];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -138,7 +139,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self showSpinner];
-    NSDictionary *mark = [_marks objectAtIndex:indexPath.row];
+    NSDictionary *mark = [_marks markAtIndex:indexPath.row];
     NSDictionary *book = [_index objectAtIndex:[[mark objectForKey:Utils.MARKBOOKID] intValue]];
     NSArray *markInfo = [NSArray arrayWithObjects:book, [mark objectForKey:Utils.MARKPAGENUM], nil];
     [self performSelector:@selector(showBookViewControllerByInitWith:) withObject:markInfo afterDelay:0.0];
@@ -146,6 +147,17 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 100.0;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [_marks removeMarkAtIndex:indexPath.row];
+        
+        [self.tableView beginUpdates];        
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView endUpdates];
+    }   
 }
 
 @end

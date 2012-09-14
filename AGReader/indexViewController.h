@@ -12,12 +12,13 @@
 #import "bookViewController.h"
 #import "bookMarkViewController.h"
 #import "MBProgressHUD.h"
+#import "bookMarks.h"
 
 @interface indexViewController : UIViewController
 
 @property(retain, nonatomic) NSArray *bookIndex;
 
-@property(retain, nonatomic) NSMutableArray *bookMarks;
+@property(retain, nonatomic) bookMarks *bookMarks;
 
 @property(retain, nonatomic) bookViewController *bookView;
 
