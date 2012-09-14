@@ -7,8 +7,7 @@
 //
 
 #import "bookViewController.h"
-#import "Utils.h"
-#import "Toast+UIView.h"
+
 
 int currentPage = 0;
 float fontValue = 13.0f;

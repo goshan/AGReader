@@ -7,7 +7,7 @@
 //
 
 #import "indexViewController.h"
-#import "Utils.h"
+
 
 BOOL currentViewIsImage;
 

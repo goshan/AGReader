@@ -8,9 +8,6 @@
 
 #import "goshanAppDelegate.h"
 
-#import "indexViewController.h"
-#import "bookViewController.h"
-
 @implementation goshanAppDelegate
 
 @synthesize window = _window;

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+#import "Utils.h"
 #import "bookIndex.h"
+
 
 @class indexViewController;
 

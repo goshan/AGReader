@@ -7,9 +7,7 @@
 //
 
 #import "tableIndexViewController.h"
-#import <QuartzCore/QuartzCore.h>
 #import "indexViewController.h"
-#import "Utils.h"
 
 @implementation tableIndexViewController
 

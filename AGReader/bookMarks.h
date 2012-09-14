@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Utils.h"
 #import "bookIndex.h"
 
 @interface bookMarks : NSObject

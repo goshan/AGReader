@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "indexViewController.h"
 
 @interface goshanAppDelegate : UIResponder <UIApplicationDelegate>
 

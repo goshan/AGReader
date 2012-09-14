@@ -7,10 +7,7 @@
 //
 
 #import "imageIndexViewController.h"
-#import <QuartzCore/QuartzCore.h>
 #import "indexViewController.h"
-#import "Utils.h"
-
 
 
 int colPerRow = 2;
