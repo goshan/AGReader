@@ -14,9 +14,15 @@
 
 
 
-@interface bookViewController : UIViewController
+@interface bookViewController : UIViewController<UIScrollViewDelegate>
 
-@property int initPageNum;
+@property int totalPageNum;
+
+@property int currentPageNum;
+
+@property int showPageNum;
+
+@property(retain, nonatomic) NSString *content;
 
 @property(retain, nonatomic) bookMarks *marks;
 
@@ -25,6 +31,8 @@
 @property(retain, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property(retain, nonatomic) NSDictionary *book;
+
+@property(retain, nonatomic) NSDictionary *pageIndex;
 
 @property(retain, nonatomic) NSArray *views;
 

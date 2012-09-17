@@ -9,18 +9,21 @@
 #import "bookViewController.h"
 
 
-int currentPage = 0;
 float fontValue = 15.0f;
 int textViewHeight = 350;
 int textViewWidth = 320;
 
 @implementation bookViewController
 
-@synthesize initPageNum = _initPageNum;
+@synthesize totalPageNum = _totalPageNum;
+@synthesize currentPageNum = _currentPageNum;
+@synthesize showPageNum = _showPageNum;
+@synthesize content = _content;
 @synthesize marks = _marks;
 @synthesize adView = _adView;
 @synthesize scrollView = _scrollView;
 @synthesize book = _book;
+@synthesize pageIndex = _pageIndex;
 @synthesize views = _views;
 
 
@@ -28,7 +31,7 @@ int textViewWidth = 320;
 
 - (NSString *)loadStringFrom:(NSString *)resource ofType:(NSString *)type{
     NSString *filePath = [[NSBundle mainBundle] pathForResource:resource ofType:type];
-    NSString *content  = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+    NSString *content = [[NSString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     return content;
 }
 
@@ -59,34 +62,40 @@ int textViewWidth = 320;
     return dict;
 }
 
-- (NSArray *)genTextViewsWithContent:(NSString *)content withIndex:(NSDictionary *)index{
+- (NSArray *)genTextViewsWithContent{
     UIFont *font = [UIFont boldSystemFontOfSize:fontValue];
     NSMutableArray *views = [[NSMutableArray alloc] init];
-    for (int i=0; i<index.count; i++){
-        int start = [[[index objectForKey:[NSNumber numberWithInt:i]] objectAtIndex:0] intValue];
-        int end = [[[index objectForKey:[NSNumber numberWithInt:i]] objectAtIndex:1] intValue];
-        NSString *text = [content substringWithRange:NSMakeRange(start, end-start)];
+    int basePage = 0;
+    if (_currentPageNum == 0){
+        basePage = 0;
+    }
+    else {
+        basePage = _currentPageNum - 1;
+    }
+    for (int i=0; i<3; i++){
+        int start = [[[_pageIndex objectForKey:[NSNumber numberWithInt:i+basePage]] objectAtIndex:0] intValue];
+        int end = [[[_pageIndex objectForKey:[NSNumber numberWithInt:i+basePage]] objectAtIndex:1] intValue];
+        NSString *text = [_content substringWithRange:NSMakeRange(start, end-start)];
         CGRect rect = CGRectMake(i*320, 0, textViewWidth, textViewHeight);
         UITextView *view = [[UITextView alloc] initWithFrame:rect];
         view.text = text;
         [view setFont:font];
         [view setEditable:NO];
+        [view setScrollEnabled:NO];
         [views addObject:view];
-        start = end;
     }
     return views;
 }
 
-- (int)getCurrentPageNum{
-    return _scrollView.contentOffset.x/textViewWidth;
+- (int)reloadShowPageNum{
+     return _scrollView.contentOffset.x/textViewWidth;
 }
 
 - (void)addBookMark{
-    int currentPage = [self getCurrentPageNum];
-    UITextView *view = [_views objectAtIndex:currentPage];
+    UITextView *view = [_views objectAtIndex:_showPageNum];
     NSString *content = [view.text substringToIndex:39];
     content = [content stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
-    NSDictionary *mark = [[NSDictionary alloc] initWithObjectsAndKeys:[_book objectForKey:Utils.BOOKID], Utils.MARKBOOKID, [NSString stringWithFormat:@"%d", currentPage], Utils.MARKPAGENUM, content, Utils.MARKCONTENT, nil];
+    NSDictionary *mark = [[NSDictionary alloc] initWithObjectsAndKeys:[_book objectForKey:Utils.BOOKID], Utils.MARKBOOKID, [NSString stringWithFormat:@"%d", _currentPageNum], Utils.MARKPAGENUM, content, Utils.MARKCONTENT, nil];
     [_marks addMark:mark];
     [self.view makeToast:@"收藏成功" duration:2.0 position:@"center" title:@""];
 }
@@ -98,13 +107,12 @@ int textViewWidth = 320;
     if (self) {
         // Custom initialization
         _book = book;
-        _initPageNum = pageNum;
+        _currentPageNum = pageNum;
         _marks = marks;
-        NSString *content = [self loadStringFrom:[_book objectForKey:Utils.FILENAME] ofType:@"txt"];
-        NSDictionary *pageIndex = [self loadPageIndexFrom:[_book objectForKey:Utils.PAGEINDEX] ofType:@"ind"];
-        _views = [self genTextViewsWithContent:content withIndex:pageIndex];
-        [pageIndex release];
-        NSLog(@"page total num is: %d", _views.count);
+        _content = [self loadStringFrom:[_book objectForKey:Utils.FILENAME] ofType:@"txt"];
+        _pageIndex = [self loadPageIndexFrom:[_book objectForKey:Utils.PAGEINDEX] ofType:@"ind"];
+        _totalPageNum = _pageIndex.count;
+        _views = [self genTextViewsWithContent];
     }
     return self;
 }
@@ -128,12 +136,18 @@ int textViewWidth = 320;
     _scrollView.pagingEnabled = YES;
     _scrollView.delaysContentTouches = YES;
     _scrollView.canCancelContentTouches = YES;
-    [_scrollView setContentSize:CGSizeMake(textViewWidth*_views.count, textViewHeight)];
-    for (int i=0; i<_views.count; i++){
+    [_scrollView setContentSize:CGSizeMake(textViewWidth*3, textViewHeight)];
+    for (int i=0; i<3; i++){
         [_scrollView addSubview:[_views objectAtIndex:i]];
-        [[_views objectAtIndex:i] release];
     }
-    [_scrollView setContentOffset:CGPointMake((textViewWidth*_initPageNum), 0)];
+    
+    //set content offset
+    if (_currentPageNum == 0){
+        [_scrollView setContentOffset:CGPointMake(0, 0)];
+    }
+    else {
+        [_scrollView setContentOffset:CGPointMake(textViewWidth, 0) animated:NO];
+    }
     
     //set rightNavItem
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"收藏" style:UIBarButtonItemStyleBordered target:self action:@selector(addBookMark)] autorelease];
@@ -181,7 +195,6 @@ int textViewWidth = 320;
 - (void)viewDidUnload
 {
     [self setScrollView:nil];
-    [self setScrollView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -218,10 +231,66 @@ int textViewWidth = 320;
 }
 
 - (void)dealloc {
+    [_content release];
+    [_marks release];
     [_views release];
     [_adView release];
     [_scrollView release];
+    [_book release];
+    [_pageIndex release];
     [super dealloc];
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    int newPageNum = [self reloadShowPageNum];
+    if (newPageNum < _showPageNum){
+        //prev page
+        UITextView *view0 = [_views objectAtIndex:0];
+        UITextView *view1 = [_views objectAtIndex:1];
+        UITextView *view2 = [_views objectAtIndex:2];
+        _currentPageNum --;
+        if (_currentPageNum == 0){
+
+        }
+        else if (_currentPageNum == _totalPageNum-2){
+            
+        }
+        else {
+            int start = [[[_pageIndex objectForKey:[NSNumber numberWithInt:_currentPageNum-1]] objectAtIndex:0] intValue];
+            int end = [[[_pageIndex objectForKey:[NSNumber numberWithInt:_currentPageNum-1]] objectAtIndex:1] intValue];
+            NSString *text = [_content substringWithRange:NSMakeRange(start, end-start)];
+            view2.text = view1.text;
+            view1.text = view0.text;
+            view0.text = text;
+            [_scrollView setContentOffset:CGPointMake(textViewWidth, 0) animated:NO];
+        }
+    }
+    else if(newPageNum > _showPageNum){
+        //next page
+        UITextView *view0 = [_views objectAtIndex:0];
+        UITextView *view1 = [_views objectAtIndex:1];
+        UITextView *view2 = [_views objectAtIndex:2];
+        _currentPageNum ++;
+        if (_currentPageNum == 1){
+            
+        }
+        else if (_currentPageNum == _totalPageNum-1){
+            
+        }
+        else {
+            int start = [[[_pageIndex objectForKey:[NSNumber numberWithInt:_currentPageNum+1]] objectAtIndex:0] intValue];
+            int end = [[[_pageIndex objectForKey:[NSNumber numberWithInt:_currentPageNum+1]] objectAtIndex:1] intValue];
+            NSString *text = [_content substringWithRange:NSMakeRange(start, end-start)];
+            view0.text = view1.text;
+            view1.text = view2.text;
+            view2.text = text;
+            [_scrollView setContentOffset:CGPointMake(textViewWidth, 0) animated:NO];
+        }
+    }
+    else{
+        //current page
+    }
+    _showPageNum = [self reloadShowPageNum];
 }
 
 @end
