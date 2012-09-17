@@ -42,6 +42,7 @@
 		D84BA98516035D720095C8AB /* 4_1.txt in Resources */ = {isa = PBXBuildFile; fileRef = D84BA97B16035D720095C8AB /* 4_1.txt */; };
 		D84BA98616035D720095C8AB /* 4_2.txt in Resources */ = {isa = PBXBuildFile; fileRef = D84BA97C16035D720095C8AB /* 4_2.txt */; };
 		D84BA98716035D720095C8AB /* 4_3.txt in Resources */ = {isa = PBXBuildFile; fileRef = D84BA97D16035D720095C8AB /* 4_3.txt */; };
+		D857C86316076D9C00BD4DA0 /* goshanLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D857C86216076D9C00BD4DA0 /* goshanLabel.m */; };
 		D86A168415FCD79100B16515 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86A168315FCD79100B16515 /* UIKit.framework */; };
 		D86A168615FCD79100B16515 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86A168515FCD79100B16515 /* Foundation.framework */; };
 		D86A168815FCD79100B16515 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86A168715FCD79100B16515 /* CoreGraphics.framework */; };
@@ -128,6 +129,8 @@
 		D84BA97B16035D720095C8AB /* 4_1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 4_1.txt; path = books/4_1.txt; sourceTree = "<group>"; };
 		D84BA97C16035D720095C8AB /* 4_2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 4_2.txt; path = books/4_2.txt; sourceTree = "<group>"; };
 		D84BA97D16035D720095C8AB /* 4_3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 4_3.txt; path = books/4_3.txt; sourceTree = "<group>"; };
+		D857C86116076D9C00BD4DA0 /* goshanLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = goshanLabel.h; sourceTree = "<group>"; };
+		D857C86216076D9C00BD4DA0 /* goshanLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = goshanLabel.m; sourceTree = "<group>"; };
 		D86A167F15FCD79100B16515 /* AGReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AGReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D86A168315FCD79100B16515 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D86A168515FCD79100B16515 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -309,6 +312,8 @@
 				D8CDEA361602DBBA008DAF2E /* bookIndex.m */,
 				D8CDEA311602D17C008DAF2E /* bookMarks.h */,
 				D8CDEA321602D17C008DAF2E /* bookMarks.m */,
+				D857C86116076D9C00BD4DA0 /* goshanLabel.h */,
+				D857C86216076D9C00BD4DA0 /* goshanLabel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -567,6 +572,7 @@
 				D8F409C31602128100E60BFE /* Toast+UIView.m in Sources */,
 				D8CDEA331602D17C008DAF2E /* bookMarks.m in Sources */,
 				D8CDEA371602DBBA008DAF2E /* bookIndex.m in Sources */,
+				D857C86316076D9C00BD4DA0 /* goshanLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

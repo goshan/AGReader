@@ -12,6 +12,7 @@
 float fontValue = 15.0f;
 int textViewHeight = 350;
 int textViewWidth = 320;
+float leftInsets = 20.0;
 
 @implementation bookViewController
 
@@ -63,7 +64,7 @@ int textViewWidth = 320;
 }
 
 - (NSArray *)genTextViewsWithContent{
-    UIFont *font = [UIFont boldSystemFontOfSize:fontValue];
+    UIFont *font = [UIFont systemFontOfSize:fontValue];
     NSMutableArray *views = [[NSMutableArray alloc] init];
     int basePage = 0;
     if (_currentPageNum == 0){
@@ -77,11 +78,11 @@ int textViewWidth = 320;
         int end = [[[_pageIndex objectForKey:[NSNumber numberWithInt:i+basePage]] objectAtIndex:1] intValue];
         NSString *text = [_content substringWithRange:NSMakeRange(start, end-start)];
         CGRect rect = CGRectMake(i*320, 0, textViewWidth, textViewHeight);
-        UITextView *view = [[UITextView alloc] initWithFrame:rect];
+        goshanLabel *view = [[goshanLabel alloc] initWithFrame:rect andLeftInsets:leftInsets];
         view.text = text;
         [view setFont:font];
-        [view setEditable:NO];
-        [view setScrollEnabled:NO];
+        view.lineBreakMode = UILineBreakModeWordWrap;
+        view.numberOfLines = 0;
         [views addObject:view];
     }
     return views;

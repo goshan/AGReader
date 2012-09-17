@@ -8,3 +8,5 @@ build/
 **/UserInterfaceState.xcuserstate
 *.xcodeproj/xcuserdata/*.xcuserdatad/*
 TODO.txt
+AGReader/books/
+AGReader/books/*

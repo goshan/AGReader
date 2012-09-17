@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Utils.h"
 #import "bookMarks.h"
+#import "goshanLabel.h"
 #import "Toast+UIView.h"
 #import "YouMiView.h"
 
