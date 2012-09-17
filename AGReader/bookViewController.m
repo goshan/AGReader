@@ -10,7 +10,7 @@
 
 
 float fontValue = 15.0f;
-int textViewHeight = 350;
+int textViewHeight = 366;
 int textViewWidth = 320;
 float leftInsets = 20.0;
 
@@ -155,6 +155,7 @@ float leftInsets = 20.0;
     
     // adView1
     _adView = [[YouMiView alloc] initWithContentSizeIdentifier:YouMiBannerContentSizeIdentifier320x50 delegate:nil];
+    _adView.frame = CGRectMake(0, 366, 320, 50);
     
     ////////////////[必填]///////////////////
     // 设置APP ID 和 APP Secret
@@ -172,7 +173,7 @@ float leftInsets = 20.0;
     // adView1.testing = NO;
     
     // 可以设置委托
-    _adView.delegate = self;
+    //_adView.delegate = (id)self;
     
     // 设置文字广告的属性
     // adView1.indicateBorder = NO;
@@ -188,9 +189,9 @@ float leftInsets = 20.0;
     // [adView1 addKeyword:@"19岁"];
     
     // 开始请求广告
-	//[_adView start];
+	[_adView start];
     
-	//[self.view addSubview:_adView];
+	[self.view addSubview:_adView];
 }
 
 - (void)viewDidUnload

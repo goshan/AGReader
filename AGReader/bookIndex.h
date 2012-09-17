@@ -17,4 +17,5 @@
 - (bookIndex *)initWithFile:(NSString *)filename;
 - (int)count;
 - (NSDictionary *)bookInfoAtIndex:(int)index;
+
 @end

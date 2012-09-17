@@ -670,6 +670,7 @@
 		D86A16B615FCD79100B16515 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AGReader/AdNetworkLibs/MobWin/AdsMoGoAdapter/build/Framework\"",
@@ -717,6 +718,7 @@
 		D86A16B715FCD79100B16515 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AGReader/AdNetworkLibs/MobWin/AdsMoGoAdapter/build/Framework\"",
