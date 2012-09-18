@@ -9,7 +9,10 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFiles</key>
-	<array/>
+	<array>
+		<string>icon.png</string>
+		<string>icon_114.png</string>
+	</array>
 	<key>CFBundleIdentifier</key>
 	<string>goshan.AGReader</string>
 	<key>CFBundleInfoDictionaryVersion</key>
