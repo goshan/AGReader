@@ -10,3 +10,4 @@ build/
 TODO.txt
 AGReader/books/
 AGReader/books/*
+*.ipa
