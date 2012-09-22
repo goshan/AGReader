@@ -10,7 +10,8 @@
 #import "Utils.h"
 #import "bookMarks.h"
 #import "goshanLabel.h"
-#import "Toast+UIView.h"
+#import "Config.h"
+#import "MBProgressHUD.h"
 #import "YouMiView.h"
 
 
@@ -27,11 +28,15 @@
 
 @property(retain, nonatomic) bookMarks *marks;
 
+@property(retain, nonatomic) Config *config;
+
 @property(retain, nonatomic) YouMiView *adView;
 
 @property(retain, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (retain, nonatomic) IBOutlet UIView *funcView;
+
+@property (retain, nonatomic) IBOutlet UIButton *viewModeButton;
 
 @property(retain, nonatomic) NSDictionary *book;
 
@@ -44,6 +49,6 @@
 
 - (IBAction)changeMode:(id)sender;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookInfo:(NSDictionary *)book pageNum:(int)pageNum marks:(bookMarks *)marks;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookInfo:(NSDictionary *)book pageNum:(int)pageNum marks:(bookMarks *)marks config:(Config *)config;
 
 @end

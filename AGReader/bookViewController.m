@@ -14,6 +14,8 @@ int textViewHeight = 366;
 int textViewWidth = 320;
 float leftInsets = 20.0;
 
+BOOL hasFuncView = NO;
+
 @implementation bookViewController
 
 @synthesize totalPageNum = _totalPageNum;
@@ -21,9 +23,11 @@ float leftInsets = 20.0;
 @synthesize showPageNum = _showPageNum;
 @synthesize content = _content;
 @synthesize marks = _marks;
+@synthesize config = _config;
 @synthesize adView = _adView;
 @synthesize scrollView = _scrollView;
 @synthesize funcView = _funcView;
+@synthesize viewModeButton = _viewModeButton;
 @synthesize book = _book;
 @synthesize pageIndex = _pageIndex;
 @synthesize views = _views;
@@ -99,18 +103,108 @@ float leftInsets = 20.0;
     content = [content stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
     NSDictionary *mark = [[NSDictionary alloc] initWithObjectsAndKeys:[_book objectForKey:Utils.BOOKID], Utils.MARKBOOKID, [NSString stringWithFormat:@"%d", _currentPageNum], Utils.MARKPAGENUM, content, Utils.MARKCONTENT, nil];
     [_marks addMark:mark];
-    [self.view makeToast:@"收藏成功" duration:2.0 position:@"center" title:@""];
+    MBProgressHUD* checkmark = [[[MBProgressHUD alloc] initWithView:self.view]autorelease];
+    [self.view addSubview:checkmark];
+    checkmark.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Checkmark.png"]] autorelease];
+    checkmark.mode = MBProgressHUDModeCustomView;
+    checkmark.labelText = @"收藏成功";
+    [checkmark show:YES];
+    [checkmark hide:YES afterDelay:1];
+}
+
+- (void)reloadViewsWithViewMode{
+    for (int i=0; i<_views.count; i++){
+        goshanLabel *view = [_views objectAtIndex:i];
+        if (_config.viewMode == 0){
+            view.backgroundColor = [UIColor whiteColor];
+            view.textColor = [UIColor blackColor];
+        }
+        else {
+            view.backgroundColor = [UIColor blackColor];
+            view.textColor = [UIColor whiteColor];
+        }
+    }
+    //set viewMode button content
+    if (_config.viewMode == 0){
+        [_viewModeButton setTitle:@"夜间" forState:UIControlStateNormal];
+    }
+    else {
+        [_viewModeButton setTitle:@"白天" forState:UIControlStateNormal];
+    }
+}
+
+- (void)changeViewMode{
+    if(_config.viewMode == 0){
+        _config.viewMode = 1;
+    }
+    else {
+        _config.viewMode = 0;
+        
+    }
+    [_config saveConfig];
+    [self reloadViewsWithViewMode];
+}
+
+- (void)loadFuncView{
+    if (hasFuncView){
+        CGRect frame = _funcView.frame;
+        frame.origin.y = 0;
+        [_funcView setFrame:frame];
+    }
+    else{
+        CGRect frame = _funcView.frame;
+        frame.origin.y = -50;
+        [_funcView setFrame:frame];
+    }
+}
+
+- (void)changeFuncView{
+    if (hasFuncView){
+        hasFuncView = NO;
+    }
+    else{
+        hasFuncView = YES;
+    }
+    
+    //Animations
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [UIView beginAnimations:nil context:context];
+    [UIView setAnimationTransition: UIViewAnimationTransitionNone forView:_funcView cache:YES];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:0.4];
+    
+    [self loadFuncView];
+    
+    [UIView commitAnimations]; 
+}
+
+- (void)hiddenFuncView{
+    if (hasFuncView){
+        hasFuncView = NO;
+        
+        //Animations
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        [UIView beginAnimations:nil context:context];
+        [UIView setAnimationTransition: UIViewAnimationTransitionNone forView:_funcView cache:YES];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        [UIView setAnimationDuration:0.4];
+        
+        [self loadFuncView];
+        
+        [UIView commitAnimations]; 
+    }
 }
 
 #define in .h file
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookInfo:(NSDictionary *)book pageNum:(int)pageNum marks:(bookMarks *)marks{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookInfo:(NSDictionary *)book pageNum:(int)pageNum marks:(bookMarks *)marks config:(Config *)config{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
         _book = book;
         _currentPageNum = pageNum;
         _marks = marks;
+        _config = config;
         _content = [self loadStringFrom:[_book objectForKey:Utils.FILENAME] ofType:@"txt"];
         _pageIndex = [self loadPageIndexFrom:[_book objectForKey:Utils.PAGEINDEX] ofType:@"ind"];
         _totalPageNum = _pageIndex.count;
@@ -140,6 +234,7 @@ float leftInsets = 20.0;
     _scrollView.delaysContentTouches = YES;
     _scrollView.canCancelContentTouches = YES;
     [_scrollView setContentSize:CGSizeMake(textViewWidth*3, textViewHeight)];
+    
     for (int i=0; i<3; i++){
         [_scrollView addSubview:[_views objectAtIndex:i]];
     }
@@ -152,8 +247,17 @@ float leftInsets = 20.0;
         [_scrollView setContentOffset:CGPointMake(textViewWidth, 0) animated:NO];
     }
     
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenFuncView)];
+    [_scrollView addGestureRecognizer:singleTap];
+    
+    //set view mode info
+    [self reloadViewsWithViewMode];
+    
+    //set func view
+    [self loadFuncView];
+    
     //set rightNavItem
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"收藏" style:UIBarButtonItemStyleBordered target:self action:@selector(addBookMark)] autorelease];
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"收藏" style:UIBarButtonItemStyleBordered target:self action:@selector(changeFuncView)] autorelease];
     
     // adView1
     _adView = [[YouMiView alloc] initWithContentSizeIdentifier:YouMiBannerContentSizeIdentifier320x50 delegate:nil];
@@ -200,6 +304,7 @@ float leftInsets = 20.0;
 {
     [self setScrollView:nil];
     [self setFuncView:nil];
+    [self setViewModeButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -244,6 +349,7 @@ float leftInsets = 20.0;
     [_book release];
     [_pageIndex release];
     [_funcView release];
+    [_viewModeButton release];
     [super dealloc];
 }
 
@@ -304,5 +410,6 @@ float leftInsets = 20.0;
 }
 
 - (IBAction)changeMode:(id)sender {
+    [self changeViewMode];
 }
 @end

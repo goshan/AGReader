@@ -10,6 +10,7 @@
 #import "Utils.h"
 #import "bookIndex.h"
 #import "bookMarks.h"
+#import "Config.h"
 #import "bookViewController.h"
 #import "MBProgressHUD.h"
 
@@ -21,9 +22,10 @@
 
 @property(retain, nonatomic) bookMarks *marks;
 @property(retain, nonatomic) bookIndex *index;
+@property(retain, nonatomic) Config *config;
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookMark:(bookMarks *)marks bookIndex:(bookIndex *)index;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookMark:(bookMarks *)marks bookIndex:(bookIndex *)index config:(Config *)config;
 
 @end

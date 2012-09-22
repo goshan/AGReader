@@ -10,6 +10,7 @@
 #import "Utils.h"
 #import "bookIndex.h"
 #import "bookMarks.h"
+#import "Config.h"
 #import "tableIndexViewController.h"
 #import "imageIndexViewController.h"
 #import "bookViewController.h"
@@ -22,6 +23,8 @@
 @property(retain, nonatomic) bookIndex *bookIndex;
 
 @property(retain, nonatomic) bookMarks *bookMarks;
+
+@property(retain, nonatomic) Config *config;
 
 @property(retain, nonatomic) bookViewController *bookView;
 

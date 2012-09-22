@@ -16,6 +16,7 @@ BOOL currentViewIsImage;
 @synthesize bookView = _bookView;
 @synthesize bookIndex = _bookIndex;
 @synthesize bookMarks = _bookMarks;
+@synthesize config = _config;
 @synthesize loadingSpinner = _loadingSpinner;
 @synthesize contentView = _contentView;
 @synthesize tableViewController = _tableViewController;
@@ -40,7 +41,7 @@ BOOL currentViewIsImage;
 }
 
 - (void) showBookViewControllerByInitWith:(NSDictionary *)book{
-    _bookView=[[bookViewController alloc] initWithNibName:@"bookViewController" bundle:nil bookInfo:book pageNum:0 marks:_bookMarks];
+    _bookView=[[bookViewController alloc] initWithNibName:@"bookViewController" bundle:nil bookInfo:book pageNum:0 marks:_bookMarks config:_config];
     [_loadingSpinner hide:YES];
     [self.navigationController pushViewController:_bookView animated:YES];
 }
@@ -71,7 +72,7 @@ BOOL currentViewIsImage;
 }
 
 - (void) showBookMark{
-    _markViewController = [[bookMarkViewController alloc] initWithNibName:@"bookMarkViewController" bundle:nil bookMark:_bookMarks bookIndex:_bookIndex];
+    _markViewController = [[bookMarkViewController alloc] initWithNibName:@"bookMarkViewController" bundle:nil bookMark:_bookMarks bookIndex:_bookIndex config:_config];
     [self.navigationController pushViewController:_markViewController animated:YES];
 }
 
@@ -84,6 +85,7 @@ BOOL currentViewIsImage;
         // Custom initialization
         _bookIndex = [[bookIndex alloc] initWithFile:@"bookIndex.txt"];
         _bookMarks = [[bookMarks alloc] initWithFile:@"bookMark.txt" andBookIndex:_bookIndex];
+        _config = [[Config alloc] initWithFile:@"config.txt"];
         _tableViewController = [[tableIndexViewController alloc] initWithNibName:@"tableIndexViewController" bundle:nil bookIndex:_bookIndex parentViewController:self];
         _imageViewController = [[imageIndexViewController alloc] initWithNibName:@"imageIndexViewController" bundle:nil bookIndex:_bookIndex parentViewController:self];
     }

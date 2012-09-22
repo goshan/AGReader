@@ -15,6 +15,7 @@
 @synthesize bookView = _bookView;
 @synthesize marks = _marks;
 @synthesize index = _index;
+@synthesize config = _config;
 @synthesize tableView = _tableView;
 
 
@@ -38,7 +39,7 @@
 }
 
 - (void) showBookViewControllerByInitWith:(NSArray *)markInfo{
-    _bookView=[[bookViewController alloc] initWithNibName:@"bookViewController" bundle:nil bookInfo:[markInfo objectAtIndex:0] pageNum:[[markInfo objectAtIndex:1] intValue] marks:_marks];
+    _bookView=[[bookViewController alloc] initWithNibName:@"bookViewController" bundle:nil bookInfo:[markInfo objectAtIndex:0] pageNum:[[markInfo objectAtIndex:1] intValue] marks:_marks config:_config];
     [_loadingSpinner hide:YES];
     [self.navigationController pushViewController:_bookView animated:YES];
 }
@@ -46,13 +47,14 @@
 
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookMark:(bookMarks *)marks bookIndex:(bookIndex *)index
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookMark:(bookMarks *)marks bookIndex:(bookIndex *)index config:(Config *)config
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
         _index = index;
         _marks = marks;
+        _config = config;
     }
     return self;
 }

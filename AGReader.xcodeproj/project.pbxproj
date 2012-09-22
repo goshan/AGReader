@@ -76,10 +76,12 @@
 		D8893BB015FD0124007CAC55 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BAF15FD0124007CAC55 /* MessageUI.framework */; };
 		D8893BB215FD0132007CAC55 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BB115FD0132007CAC55 /* QuartzCore.framework */; };
 		D8893BB415FD013A007CAC55 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BB315FD013A007CAC55 /* libsqlite3.0.dylib */; };
+		D8968CFB160D9FC4001DC8F4 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = D8968CFA160D9FC4001DC8F4 /* Config.m */; };
 		D8CDEA331602D17C008DAF2E /* bookMarks.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CDEA321602D17C008DAF2E /* bookMarks.m */; };
 		D8CDEA371602DBBA008DAF2E /* bookIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CDEA361602DBBA008DAF2E /* bookIndex.m */; };
 		D8F409BB1601FC4400E60BFE /* markCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F409BA1601FC4400E60BFE /* markCell.xib */; };
 		D8F409C31602128100E60BFE /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F409C21602128100E60BFE /* Toast+UIView.m */; };
+		D8FDCC36160DAE7D0022503F /* Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8FDCC35160DAE7D0022503F /* Checkmark@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +179,8 @@
 		D8893BAF15FD0124007CAC55 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		D8893BB115FD0132007CAC55 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D8893BB315FD013A007CAC55 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		D8968CF9160D9FC4001DC8F4 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		D8968CFA160D9FC4001DC8F4 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		D8CDEA311602D17C008DAF2E /* bookMarks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookMarks.h; sourceTree = "<group>"; };
 		D8CDEA321602D17C008DAF2E /* bookMarks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bookMarks.m; sourceTree = "<group>"; };
 		D8CDEA351602DBBA008DAF2E /* bookIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookIndex.h; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 		D8F409BA1601FC4400E60BFE /* markCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = markCell.xib; sourceTree = "<group>"; };
 		D8F409C11602128100E60BFE /* Toast+UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Toast+UIView.h"; sourceTree = "<group>"; };
 		D8F409C21602128100E60BFE /* Toast+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Toast+UIView.m"; sourceTree = "<group>"; };
+		D8FDCC35160DAE7D0022503F /* Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkmark@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +319,8 @@
 				D8CDEA321602D17C008DAF2E /* bookMarks.m */,
 				D857C86116076D9C00BD4DA0 /* goshanLabel.h */,
 				D857C86216076D9C00BD4DA0 /* goshanLabel.m */,
+				D8968CF9160D9FC4001DC8F4 /* Config.h */,
+				D8968CFA160D9FC4001DC8F4 /* Config.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -334,40 +341,9 @@
 			isa = PBXGroup;
 			children = (
 				D87A4E3716005581009961E3 /* cheast_bg.png */,
+				D8FDCC35160DAE7D0022503F /* Checkmark@2x.png */,
 				D87D40C015FF4E7A00DD18FB /* bookIndex.txt */,
-				D84BA97216035C6F0095C8AB /* 1_1.txt */,
-				D84BA91B1603574C0095C8AB /* 1_1_index.ind */,
-				D84BA95C160358990095C8AB /* 1_1.png */,
-				D84BA97416035D710095C8AB /* 1_2.txt */,
-				D84BA91E1603574C0095C8AB /* 1_2_index.ind */,
-				D84BA95D160358990095C8AB /* 1_2.png */,
-				D84BA97516035D710095C8AB /* 2_1.txt */,
-				D84BA9211603574C0095C8AB /* 2_1_index.ind */,
-				D84BA95E160358990095C8AB /* 2_1.png */,
-				D84BA97616035D710095C8AB /* 2_2.txt */,
-				D84BA9241603574C0095C8AB /* 2_2_index.ind */,
-				D84BA95F160358990095C8AB /* 2_2.png */,
-				D84BA97716035D710095C8AB /* 2_3.txt */,
-				D84BA9271603574C0095C8AB /* 2_3_index.ind */,
-				D84BA960160358990095C8AB /* 2_3.png */,
-				D84BA97816035D710095C8AB /* 3_1.txt */,
-				D84BA92A1603574C0095C8AB /* 3_1_index.ind */,
-				D84BA961160358990095C8AB /* 3_1.png */,
-				D84BA97916035D710095C8AB /* 3_2.txt */,
-				D84BA92D1603574C0095C8AB /* 3_2_index.ind */,
-				D84BA962160358990095C8AB /* 3_2.png */,
-				D84BA97A16035D720095C8AB /* 3_3.txt */,
-				D84BA9301603574C0095C8AB /* 3_3_index.ind */,
-				D84BA963160358990095C8AB /* 3_3.png */,
-				D84BA97B16035D720095C8AB /* 4_1.txt */,
-				D84BA9331603574C0095C8AB /* 4_1_index.ind */,
-				D84BA964160358990095C8AB /* 4_1.png */,
-				D84BA97C16035D720095C8AB /* 4_2.txt */,
-				D84BA9361603574C0095C8AB /* 4_2_index.ind */,
-				D84BA965160358990095C8AB /* 4_2.png */,
-				D84BA97D16035D720095C8AB /* 4_3.txt */,
-				D84BA9391603574C0095C8AB /* 4_3_index.ind */,
-				D84BA966160358990095C8AB /* 4_3.png */,
+				D8FDCC33160DAE690022503F /* books */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -411,6 +387,46 @@
 				D8F409BA1601FC4400E60BFE /* markCell.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		D8FDCC33160DAE690022503F /* books */ = {
+			isa = PBXGroup;
+			children = (
+				D84BA97216035C6F0095C8AB /* 1_1.txt */,
+				D84BA91B1603574C0095C8AB /* 1_1_index.ind */,
+				D84BA95C160358990095C8AB /* 1_1.png */,
+				D84BA97416035D710095C8AB /* 1_2.txt */,
+				D84BA91E1603574C0095C8AB /* 1_2_index.ind */,
+				D84BA95D160358990095C8AB /* 1_2.png */,
+				D84BA97516035D710095C8AB /* 2_1.txt */,
+				D84BA9211603574C0095C8AB /* 2_1_index.ind */,
+				D84BA95E160358990095C8AB /* 2_1.png */,
+				D84BA97616035D710095C8AB /* 2_2.txt */,
+				D84BA9241603574C0095C8AB /* 2_2_index.ind */,
+				D84BA95F160358990095C8AB /* 2_2.png */,
+				D84BA97716035D710095C8AB /* 2_3.txt */,
+				D84BA9271603574C0095C8AB /* 2_3_index.ind */,
+				D84BA960160358990095C8AB /* 2_3.png */,
+				D84BA97816035D710095C8AB /* 3_1.txt */,
+				D84BA92A1603574C0095C8AB /* 3_1_index.ind */,
+				D84BA961160358990095C8AB /* 3_1.png */,
+				D84BA97916035D710095C8AB /* 3_2.txt */,
+				D84BA92D1603574C0095C8AB /* 3_2_index.ind */,
+				D84BA962160358990095C8AB /* 3_2.png */,
+				D84BA97A16035D720095C8AB /* 3_3.txt */,
+				D84BA9301603574C0095C8AB /* 3_3_index.ind */,
+				D84BA963160358990095C8AB /* 3_3.png */,
+				D84BA97B16035D720095C8AB /* 4_1.txt */,
+				D84BA9331603574C0095C8AB /* 4_1_index.ind */,
+				D84BA964160358990095C8AB /* 4_1.png */,
+				D84BA97C16035D720095C8AB /* 4_2.txt */,
+				D84BA9361603574C0095C8AB /* 4_2_index.ind */,
+				D84BA965160358990095C8AB /* 4_2.png */,
+				D84BA97D16035D720095C8AB /* 4_3.txt */,
+				D84BA9391603574C0095C8AB /* 4_3_index.ind */,
+				D84BA966160358990095C8AB /* 4_3.png */,
+			);
+			name = books;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -526,6 +542,7 @@
 				D84BA98516035D720095C8AB /* 4_1.txt in Resources */,
 				D84BA98616035D720095C8AB /* 4_2.txt in Resources */,
 				D84BA98716035D720095C8AB /* 4_3.txt in Resources */,
+				D8FDCC36160DAE7D0022503F /* Checkmark@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +590,7 @@
 				D8CDEA331602D17C008DAF2E /* bookMarks.m in Sources */,
 				D8CDEA371602DBBA008DAF2E /* bookIndex.m in Sources */,
 				D857C86316076D9C00BD4DA0 /* goshanLabel.m in Sources */,
+				D8968CFB160D9FC4001DC8F4 /* Config.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
