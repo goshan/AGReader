@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16F071881608661600BA427E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 16F071861608661600BA427E /* icon.png */; };
+		16F071891608661600BA427E /* icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 16F071871608661600BA427E /* icon_114.png */; };
 		D8218E951601A12700759128 /* bookMarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8218E931601A12700759128 /* bookMarkViewController.m */; };
 		D8218E961601A12700759128 /* bookMarkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8218E941601A12700759128 /* bookMarkViewController.xib */; };
 		D84BA93C1603574C0095C8AB /* 1_1_index.ind in Resources */ = {isa = PBXBuildFile; fileRef = D84BA91B1603574C0095C8AB /* 1_1_index.ind */; };
@@ -95,6 +97,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		16F071861608661600BA427E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = SOURCE_ROOT; };
+		16F071871608661600BA427E /* icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114.png; sourceTree = SOURCE_ROOT; };
 		D8218E921601A12700759128 /* bookMarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookMarkViewController.h; sourceTree = "<group>"; };
 		D8218E931601A12700759128 /* bookMarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bookMarkViewController.m; sourceTree = "<group>"; };
 		D8218E941601A12700759128 /* bookMarkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = bookMarkViewController.xib; sourceTree = "<group>"; };
@@ -340,6 +344,8 @@
 		D87D406615FF0B6C00DD18FB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				16F071861608661600BA427E /* icon.png */,
+				16F071871608661600BA427E /* icon_114.png */,
 				D87A4E3716005581009961E3 /* cheast_bg.png */,
 				D8FDCC35160DAE7D0022503F /* Checkmark@2x.png */,
 				D87D40C015FF4E7A00DD18FB /* bookIndex.txt */,
@@ -543,6 +549,8 @@
 				D84BA98616035D720095C8AB /* 4_2.txt in Resources */,
 				D84BA98716035D720095C8AB /* 4_3.txt in Resources */,
 				D8FDCC36160DAE7D0022503F /* Checkmark@2x.png in Resources */,
+				16F071881608661600BA427E /* icon.png in Resources */,
+				16F071891608661600BA427E /* icon_114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,7 +653,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WANXIN YANG (KHUR99HEGS)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -660,6 +668,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DB8ED630-5A89-4437-9035-DB8A2C31CB18";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -670,7 +679,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WANXIN YANG (KHUR99HEGS)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -679,6 +688,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DB8ED630-5A89-4437-9035-DB8A2C31CB18";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -688,7 +698,7 @@
 		D86A16B615FCD79100B16515 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WANXIN YANG (KHUR99HEGS)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AGReader/AdNetworkLibs/MobWin/AdsMoGoAdapter/build/Framework\"",
@@ -727,6 +737,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DB8ED630-5A89-4437-9035-DB8A2C31CB18";
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -736,7 +747,7 @@
 		D86A16B715FCD79100B16515 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WANXIN YANG (KHUR99HEGS)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AGReader/AdNetworkLibs/MobWin/AdsMoGoAdapter/build/Framework\"",
@@ -775,6 +786,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DB8ED630-5A89-4437-9035-DB8A2C31CB18";
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
