@@ -58,7 +58,10 @@
 		D86A16A715FCD79100B16515 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86A168515FCD79100B16515 /* Foundation.framework */; };
 		D86A16AF15FCD79100B16515 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D86A16AD15FCD79100B16515 /* InfoPlist.strings */; };
 		D86A16B215FCD79100B16515 /* AGReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D86A16B115FCD79100B16515 /* AGReaderTests.m */; };
+		D86D56A5160E15CC00800523 /* mark.png in Resources */ = {isa = PBXBuildFile; fileRef = D86D56A4160E15CC00800523 /* mark.png */; };
 		D86F3EA21600B6F90021483F /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D86F3EA11600B6F90021483F /* Utils.m */; };
+		D8749846160DE7A300B3BC11 /* day.png in Resources */ = {isa = PBXBuildFile; fileRef = D8749844160DE7A300B3BC11 /* day.png */; };
+		D8749847160DE7A300B3BC11 /* night.png in Resources */ = {isa = PBXBuildFile; fileRef = D8749845160DE7A300B3BC11 /* night.png */; };
 		D87A4E341600510C009961E3 /* imageIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D87A4E321600510C009961E3 /* imageIndexViewController.m */; };
 		D87A4E351600510C009961E3 /* imageIndexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87A4E331600510C009961E3 /* imageIndexViewController.xib */; };
 		D87A4E3816005581009961E3 /* cheast_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D87A4E3716005581009961E3 /* cheast_bg.png */; };
@@ -156,8 +159,11 @@
 		D86A16AE15FCD79100B16515 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D86A16B015FCD79100B16515 /* AGReaderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGReaderTests.h; sourceTree = "<group>"; };
 		D86A16B115FCD79100B16515 /* AGReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AGReaderTests.m; sourceTree = "<group>"; };
+		D86D56A4160E15CC00800523 /* mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mark.png; sourceTree = "<group>"; };
 		D86F3EA01600B6F90021483F /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		D86F3EA11600B6F90021483F /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		D8749844160DE7A300B3BC11 /* day.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = day.png; sourceTree = "<group>"; };
+		D8749845160DE7A300B3BC11 /* night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = night.png; sourceTree = "<group>"; };
 		D87A4E311600510C009961E3 /* imageIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imageIndexViewController.h; sourceTree = "<group>"; };
 		D87A4E321600510C009961E3 /* imageIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = imageIndexViewController.m; sourceTree = "<group>"; };
 		D87A4E331600510C009961E3 /* imageIndexViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = imageIndexViewController.xib; sourceTree = "<group>"; };
@@ -344,6 +350,9 @@
 		D87D406615FF0B6C00DD18FB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D86D56A4160E15CC00800523 /* mark.png */,
+				D8749844160DE7A300B3BC11 /* day.png */,
+				D8749845160DE7A300B3BC11 /* night.png */,
 				16F071861608661600BA427E /* icon.png */,
 				16F071871608661600BA427E /* icon_114.png */,
 				D87A4E3716005581009961E3 /* cheast_bg.png */,
@@ -551,6 +560,9 @@
 				D8FDCC36160DAE7D0022503F /* Checkmark@2x.png in Resources */,
 				16F071881608661600BA427E /* icon.png in Resources */,
 				16F071891608661600BA427E /* icon_114.png in Resources */,
+				D8749846160DE7A300B3BC11 /* day.png in Resources */,
+				D8749847160DE7A300B3BC11 /* night.png in Resources */,
+				D86D56A5160E15CC00800523 /* mark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

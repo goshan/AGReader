@@ -42,7 +42,7 @@
 						<string key="NSFrameSize">{320, 416}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSNextKeyView" ref="329325295"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -54,16 +54,14 @@
 							<object class="IBUIButton" id="382199600">
 								<reference key="NSNextResponder" ref="329325295"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{210, 5}, {50, 40}}</string>
+								<string key="NSFrame">{{210, 0}, {60, 49}}</string>
 								<reference key="NSSuperview" ref="329325295"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="75747955"/>
+								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
-								<int key="IBUIButtonType">1</int>
-								<string key="IBUINormalTitle">收藏</string>
 								<object class="NSColor" key="IBUIHighlightedTitleColor" id="37827306">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MQA</bytes>
@@ -89,7 +87,7 @@
 							<object class="IBUIButton" id="945118155">
 								<reference key="NSNextResponder" ref="329325295"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{58, 5}, {50, 40}}</string>
+								<string key="NSFrame">{{58, 0}, {60, 49}}</string>
 								<reference key="NSSuperview" ref="329325295"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="382199600"/>
@@ -97,8 +95,6 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
-								<int key="IBUIButtonType">1</int>
-								<string key="IBUINormalTitle">夜间</string>
 								<reference key="IBUIHighlightedTitleColor" ref="37827306"/>
 								<object class="NSColor" key="IBUINormalTitleColor">
 									<int key="NSColorSpace">1</int>
@@ -124,7 +120,7 @@
 				<string key="NSFrame">{{0, 20}, {320, 460}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="329325295"/>
+				<reference key="NSNextKeyView" ref="75747955"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MC43NQA</bytes>
@@ -170,6 +166,14 @@
 						<reference key="destination" ref="945118155"/>
 					</object>
 					<int key="connectionID">59</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">addMarkButton</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="382199600"/>
+					</object>
+					<int key="connectionID">63</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -269,7 +273,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">59</int>
+			<int key="maxID">63</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -291,11 +295,16 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="addMarkButton">UIButton</string>
 						<string key="funcView">UIView</string>
 						<string key="scrollView">UIScrollView</string>
 						<string key="viewModeButton">UIButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="addMarkButton">
+							<string key="name">addMarkButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="funcView">
 							<string key="name">funcView</string>
 							<string key="candidateClassName">UIView</string>

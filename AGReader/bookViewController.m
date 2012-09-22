@@ -28,6 +28,7 @@ BOOL hasFuncView = NO;
 @synthesize scrollView = _scrollView;
 @synthesize funcView = _funcView;
 @synthesize viewModeButton = _viewModeButton;
+@synthesize addMarkButton = _addMarkButton;
 @synthesize book = _book;
 @synthesize pageIndex = _pageIndex;
 @synthesize views = _views;
@@ -126,10 +127,10 @@ BOOL hasFuncView = NO;
     }
     //set viewMode button content
     if (_config.viewMode == 0){
-        [_viewModeButton setTitle:@"夜间" forState:UIControlStateNormal];
+        [_viewModeButton setBackgroundImage:[UIImage imageNamed:@"night.png"] forState:UIControlStateNormal];
     }
     else {
-        [_viewModeButton setTitle:@"白天" forState:UIControlStateNormal];
+        [_viewModeButton setBackgroundImage:[UIImage imageNamed:@"day.png"] forState:UIControlStateNormal];
     }
 }
 
@@ -175,7 +176,7 @@ BOOL hasFuncView = NO;
     
     [self loadFuncView];
     
-    [UIView commitAnimations]; 
+    [UIView commitAnimations];
 }
 
 - (void)hiddenFuncView{
@@ -254,6 +255,8 @@ BOOL hasFuncView = NO;
     //set view mode info
     [self reloadViewsWithViewMode];
     
+    [_addMarkButton setBackgroundImage:[UIImage imageNamed:@"mark.png"] forState:UIControlStateNormal];
+    
     //set func view
     [self loadFuncView];
     
@@ -306,6 +309,7 @@ BOOL hasFuncView = NO;
     [self setScrollView:nil];
     [self setFuncView:nil];
     [self setViewModeButton:nil];
+    [self setAddMarkButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -351,6 +355,7 @@ BOOL hasFuncView = NO;
     [_pageIndex release];
     [_funcView release];
     [_viewModeButton release];
+    [_addMarkButton release];
     [super dealloc];
 }
 

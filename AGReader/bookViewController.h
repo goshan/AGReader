@@ -38,6 +38,8 @@
 
 @property (retain, nonatomic) IBOutlet UIButton *viewModeButton;
 
+@property (retain, nonatomic) IBOutlet UIButton *addMarkButton;
+
 @property(retain, nonatomic) NSDictionary *book;
 
 @property(retain, nonatomic) NSDictionary *pageIndex;
