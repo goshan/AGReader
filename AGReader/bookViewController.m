@@ -247,6 +247,7 @@ BOOL hasFuncView = NO;
         [_scrollView setContentOffset:CGPointMake(textViewWidth, 0) animated:NO];
     }
     
+    //add single tap in scrollView for hidden funcView
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenFuncView)];
     [_scrollView addGestureRecognizer:singleTap];
     
@@ -257,7 +258,7 @@ BOOL hasFuncView = NO;
     [self loadFuncView];
     
     //set rightNavItem
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"收藏" style:UIBarButtonItemStyleBordered target:self action:@selector(changeFuncView)] autorelease];
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"功能" style:UIBarButtonItemStyleBordered target:self action:@selector(changeFuncView)] autorelease];
     
     // adView1
     _adView = [[YouMiView alloc] initWithContentSizeIdentifier:YouMiBannerContentSizeIdentifier320x50 delegate:nil];
