@@ -31,12 +31,18 @@
 
 @property(retain, nonatomic) IBOutlet UIScrollView *scrollView;
 
+@property (retain, nonatomic) IBOutlet UIView *funcView;
+
 @property(retain, nonatomic) NSDictionary *book;
 
 @property(retain, nonatomic) NSDictionary *pageIndex;
 
 @property(retain, nonatomic) NSArray *views;
 
+
+- (IBAction)addMark:(id)sender;
+
+- (IBAction)changeMode:(id)sender;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookInfo:(NSDictionary *)book pageNum:(int)pageNum marks:(bookMarks *)marks;
 

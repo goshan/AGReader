@@ -23,6 +23,7 @@ float leftInsets = 20.0;
 @synthesize marks = _marks;
 @synthesize adView = _adView;
 @synthesize scrollView = _scrollView;
+@synthesize funcView = _funcView;
 @synthesize book = _book;
 @synthesize pageIndex = _pageIndex;
 @synthesize views = _views;
@@ -114,6 +115,7 @@ float leftInsets = 20.0;
         _pageIndex = [self loadPageIndexFrom:[_book objectForKey:Utils.PAGEINDEX] ofType:@"ind"];
         _totalPageNum = _pageIndex.count;
         _views = [self genTextViewsWithContent];
+        _showPageNum = pageNum == 0 ? 0 : 1;
     }
     return self;
 }
@@ -197,6 +199,7 @@ float leftInsets = 20.0;
 - (void)viewDidUnload
 {
     [self setScrollView:nil];
+    [self setFuncView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -240,6 +243,7 @@ float leftInsets = 20.0;
     [_scrollView release];
     [_book release];
     [_pageIndex release];
+    [_funcView release];
     [super dealloc];
 }
 
@@ -295,4 +299,10 @@ float leftInsets = 20.0;
     _showPageNum = [self reloadShowPageNum];
 }
 
+- (IBAction)addMark:(id)sender {
+    [self addBookMark];
+}
+
+- (IBAction)changeMode:(id)sender {
+}
 @end
