@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1663A43C1613FBD6009ACE9C /* libYouMi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1663A4391613FBD6009ACE9C /* libYouMi.a */; };
 		16F071881608661600BA427E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 16F071861608661600BA427E /* icon.png */; };
 		16F071891608661600BA427E /* icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 16F071871608661600BA427E /* icon_114.png */; };
 		D8218E951601A12700759128 /* bookMarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8218E931601A12700759128 /* bookMarkViewController.m */; };
@@ -72,7 +73,6 @@
 		D87D40BF15FF452600DD18FB /* indexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87D40BD15FF452600DD18FB /* indexViewController.xib */; };
 		D87D40C215FF4E7A00DD18FB /* bookIndex.txt in Resources */ = {isa = PBXBuildFile; fileRef = D87D40C015FF4E7A00DD18FB /* bookIndex.txt */; };
 		D87D40C515FF547900DD18FB /* indexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87D40C415FF547900DD18FB /* indexCell.xib */; };
-		D8893BA415FD00BB007CAC55 /* libYouMi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BA115FD00BB007CAC55 /* libYouMi.a */; };
 		D8893BA615FD00E0007CAC55 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BA515FD00E0007CAC55 /* SystemConfiguration.framework */; };
 		D8893BA815FD00F0007CAC55 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BA715FD00F0007CAC55 /* CoreLocation.framework */; };
 		D8893BAA15FD00F8007CAC55 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8893BA915FD00F8007CAC55 /* CoreTelephony.framework */; };
@@ -100,6 +100,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1663A4391613FBD6009ACE9C /* libYouMi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libYouMi.a; sourceTree = "<group>"; };
+		1663A43A1613FBD6009ACE9C /* YouMiDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiDelegateProtocol.h; sourceTree = "<group>"; };
+		1663A43B1613FBD6009ACE9C /* YouMiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiView.h; sourceTree = "<group>"; };
 		16F071861608661600BA427E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = SOURCE_ROOT; };
 		16F071871608661600BA427E /* icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114.png; sourceTree = SOURCE_ROOT; };
 		D8218E921601A12700759128 /* bookMarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookMarkViewController.h; sourceTree = "<group>"; };
@@ -178,9 +181,6 @@
 		D87D40BD15FF452600DD18FB /* indexViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = indexViewController.xib; sourceTree = "<group>"; };
 		D87D40C015FF4E7A00DD18FB /* bookIndex.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bookIndex.txt; sourceTree = "<group>"; };
 		D87D40C415FF547900DD18FB /* indexCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = indexCell.xib; sourceTree = "<group>"; };
-		D8893BA115FD00BB007CAC55 /* libYouMi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libYouMi.a; sourceTree = "<group>"; };
-		D8893BA215FD00BB007CAC55 /* YouMiDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiDelegateProtocol.h; sourceTree = "<group>"; };
-		D8893BA315FD00BB007CAC55 /* YouMiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiView.h; sourceTree = "<group>"; };
 		D8893BA515FD00E0007CAC55 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D8893BA715FD00F0007CAC55 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D8893BA915FD00F8007CAC55 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -217,7 +217,7 @@
 				D86A168415FCD79100B16515 /* UIKit.framework in Frameworks */,
 				D86A168615FCD79100B16515 /* Foundation.framework in Frameworks */,
 				D86A168815FCD79100B16515 /* CoreGraphics.framework in Frameworks */,
-				D8893BA415FD00BB007CAC55 /* libYouMi.a in Frameworks */,
+				1663A43C1613FBD6009ACE9C /* libYouMi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +275,9 @@
 		D86A168915FCD79100B16515 /* AGReader */ = {
 			isa = PBXGroup;
 			children = (
+				1663A4391613FBD6009ACE9C /* libYouMi.a */,
+				1663A43A1613FBD6009ACE9C /* YouMiDelegateProtocol.h */,
+				1663A43B1613FBD6009ACE9C /* YouMiView.h */,
 				D86A169215FCD79100B16515 /* goshanAppDelegate.h */,
 				D86A169315FCD79100B16515 /* goshanAppDelegate.m */,
 				D87D406815FF0B8F00DD18FB /* Controllers */,
@@ -282,7 +285,6 @@
 				D86F3E9F1600B5B90021483F /* Models */,
 				D87D406615FF0B6C00DD18FB /* Resources */,
 				D87D405F15FF04C000DD18FB /* Plugins */,
-				D87D406715FF0B7500DD18FB /* YouMiAd */,
 				D86A168A15FCD79100B16515 /* Supporting Files */,
 			);
 			path = AGReader;
@@ -361,16 +363,6 @@
 				D8FDCC33160DAE690022503F /* books */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		D87D406715FF0B7500DD18FB /* YouMiAd */ = {
-			isa = PBXGroup;
-			children = (
-				D8893BA115FD00BB007CAC55 /* libYouMi.a */,
-				D8893BA215FD00BB007CAC55 /* YouMiDelegateProtocol.h */,
-				D8893BA315FD00BB007CAC55 /* YouMiView.h */,
-			);
-			name = YouMiAd;
 			sourceTree = "<group>";
 		};
 		D87D406815FF0B8F00DD18FB /* Controllers */ = {
@@ -664,7 +656,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					i386,
+				);
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WANXIN YANG (KHUR99HEGS)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -680,9 +675,11 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DB8ED630-5A89-4437-9035-DB8A2C31CB18";
+				ONLY_ACTIVE_ARCH = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "94E2A46C-9FE0-4EF9-ACA1-E8FAC84C5D10";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = i386;
 			};
 			name = Debug;
 		};
@@ -690,7 +687,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					i386,
+				);
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WANXIN YANG (KHUR99HEGS)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -699,11 +699,13 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DB8ED630-5A89-4437-9035-DB8A2C31CB18";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "94E2A46C-9FE0-4EF9-ACA1-E8FAC84C5D10";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = i386;
 			};
 			name = Release;
 		};
@@ -749,7 +751,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DB8ED630-5A89-4437-9035-DB8A2C31CB18";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "94E2A46C-9FE0-4EF9-ACA1-E8FAC84C5D10";
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -798,7 +800,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DB8ED630-5A89-4437-9035-DB8A2C31CB18";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "94E2A46C-9FE0-4EF9-ACA1-E8FAC84C5D10";
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
