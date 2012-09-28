@@ -172,7 +172,7 @@
 		D87A4E331600510C009961E3 /* imageIndexViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = imageIndexViewController.xib; sourceTree = "<group>"; };
 		D87A4E3716005581009961E3 /* cheast_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cheast_bg.png; sourceTree = "<group>"; };
 		D87A4E3916005A1C009961E3 /* tableIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tableIndexViewController.h; sourceTree = "<group>"; };
-		D87A4E3A16005A1C009961E3 /* tableIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tableIndexViewController.m; sourceTree = "<group>"; };
+		D87A4E3A16005A1C009961E3 /* tableIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tableIndexViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D87A4E3B16005A1C009961E3 /* tableIndexViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tableIndexViewController.xib; sourceTree = "<group>"; };
 		D87D406015FF04C000DD18FB /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		D87D406115FF04C000DD18FB /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -275,9 +275,6 @@
 		D86A168915FCD79100B16515 /* AGReader */ = {
 			isa = PBXGroup;
 			children = (
-				1663A4391613FBD6009ACE9C /* libYouMi.a */,
-				1663A43A1613FBD6009ACE9C /* YouMiDelegateProtocol.h */,
-				1663A43B1613FBD6009ACE9C /* YouMiView.h */,
 				D86A169215FCD79100B16515 /* goshanAppDelegate.h */,
 				D86A169315FCD79100B16515 /* goshanAppDelegate.m */,
 				D87D406815FF0B8F00DD18FB /* Controllers */,
@@ -285,6 +282,7 @@
 				D86F3E9F1600B5B90021483F /* Models */,
 				D87D406615FF0B6C00DD18FB /* Resources */,
 				D87D405F15FF04C000DD18FB /* Plugins */,
+				D8E53422161552C4002FAA2F /* YoumiAd */,
 				D86A168A15FCD79100B16515 /* Supporting Files */,
 			);
 			path = AGReader;
@@ -394,6 +392,16 @@
 				D8F409BA1601FC4400E60BFE /* markCell.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		D8E53422161552C4002FAA2F /* YoumiAd */ = {
+			isa = PBXGroup;
+			children = (
+				1663A4391613FBD6009ACE9C /* libYouMi.a */,
+				1663A43A1613FBD6009ACE9C /* YouMiDelegateProtocol.h */,
+				1663A43B1613FBD6009ACE9C /* YouMiView.h */,
+			);
+			name = YoumiAd;
 			sourceTree = "<group>";
 		};
 		D8FDCC33160DAE690022503F /* books */ = {
@@ -712,6 +720,7 @@
 		D86A16B615FCD79100B16515 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WANXIN YANG (KHUR99HEGS)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -754,6 +763,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "94E2A46C-9FE0-4EF9-ACA1-E8FAC84C5D10";
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = i386;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -761,6 +771,7 @@
 		D86A16B715FCD79100B16515 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WANXIN YANG (KHUR99HEGS)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -803,6 +814,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "94E2A46C-9FE0-4EF9-ACA1-E8FAC84C5D10";
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = i386;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

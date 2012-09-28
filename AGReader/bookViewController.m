@@ -149,12 +149,12 @@ BOOL hasFuncView = NO;
 - (void)loadFuncView{
     if (hasFuncView){
         CGRect frame = _funcView.frame;
-        frame.origin.y = 0;
+        frame.origin.y = 356;
         [_funcView setFrame:frame];
     }
     else{
         CGRect frame = _funcView.frame;
-        frame.origin.y = -50;
+        frame.origin.y = 416;
         [_funcView setFrame:frame];
     }
 }
@@ -252,14 +252,6 @@ BOOL hasFuncView = NO;
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenFuncView)];
     [_scrollView addGestureRecognizer:singleTap];
     
-    //set view mode info
-    [self reloadViewsWithViewMode];
-    
-    [_addMarkButton setBackgroundImage:[UIImage imageNamed:@"mark.png"] forState:UIControlStateNormal];
-    
-    //set func view
-    [self loadFuncView];
-    
     //set rightNavItem
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"功能" style:UIBarButtonItemStyleBordered target:self action:@selector(changeFuncView)] autorelease];
     
@@ -302,6 +294,26 @@ BOOL hasFuncView = NO;
 	[_adView start];
     
 	[self.view addSubview:_adView];
+    
+    _funcView = [[UIView alloc] initWithFrame:CGRectMake(0, 416, 320, 60)];
+    _funcView.backgroundColor = [UIColor colorWithRed:0x3A/255 green:0x3A/255 blue:0x3A/255 alpha:0.5];
+    _viewModeButton = [[UIButton alloc] initWithFrame:CGRectMake(45, 6, 90, 48)];
+    _addMarkButton = [[UIButton alloc] initWithFrame:CGRectMake(185, 6, 90, 48)];
+    
+    //set view mode info
+    [self reloadViewsWithViewMode];
+    
+    [_addMarkButton setBackgroundImage:[UIImage imageNamed:@"mark.png"] forState:UIControlStateNormal];
+    
+    [_viewModeButton addTarget:self action:@selector(changeViewMode) forControlEvents:UIControlEventTouchUpInside];
+    [_addMarkButton addTarget:self action:@selector(addBookMark) forControlEvents:UIControlEventTouchUpInside];
+    [_funcView addSubview:_viewModeButton];
+    [_funcView addSubview:_addMarkButton];
+    
+    //set func view
+    [self loadFuncView];
+    
+    [self.view addSubview:_funcView];
 }
 
 - (void)viewDidUnload
@@ -409,13 +421,5 @@ BOOL hasFuncView = NO;
         //current page
     }
     _showPageNum = [self reloadShowPageNum];
-}
-
-- (IBAction)addMark:(id)sender {
-    [self addBookMark];
-}
-
-- (IBAction)changeMode:(id)sender {
-    [self changeViewMode];
 }
 @end
