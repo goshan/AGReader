@@ -14,7 +14,7 @@ int textViewHeight = 366;
 int textViewWidth = 320;
 float leftInsets = 20.0;
 
-BOOL hasFuncView = NO;
+BOOL hasNavView = YES;
 
 @implementation bookViewController
 
@@ -146,25 +146,29 @@ BOOL hasFuncView = NO;
     [self reloadViewsWithViewMode];
 }
 
-- (void)loadFuncView{
-    if (hasFuncView){
+- (void)loadViewByHasNav{
+    if (hasNavView){
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+        
         CGRect frame = _funcView.frame;
         frame.origin.y = 356;
         [_funcView setFrame:frame];
     }
     else{
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+        
         CGRect frame = _funcView.frame;
-        frame.origin.y = 416;
+        frame.origin.y = 460;
         [_funcView setFrame:frame];
     }
 }
 
-- (void)changeFuncView{
-    if (hasFuncView){
-        hasFuncView = NO;
+- (void)changeNavView{
+    if (hasNavView){
+        hasNavView = NO;
     }
     else{
-        hasFuncView = YES;
+        hasNavView = YES;
     }
     
     //Animations
@@ -174,14 +178,14 @@ BOOL hasFuncView = NO;
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     [UIView setAnimationDuration:0.4];
     
-    [self loadFuncView];
+    [self loadViewByHasNav];
     
     [UIView commitAnimations];
 }
 
-- (void)hiddenFuncView{
-    if (hasFuncView){
-        hasFuncView = NO;
+- (void)hiddenNavView{
+    if (hasNavView){
+        hasNavView = NO;
         
         //Animations
         CGContextRef context = UIGraphicsGetCurrentContext();
@@ -190,7 +194,7 @@ BOOL hasFuncView = NO;
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         [UIView setAnimationDuration:0.4];
         
-        [self loadFuncView];
+        [self loadViewByHasNav];
         
         [UIView commitAnimations]; 
     }
@@ -249,15 +253,15 @@ BOOL hasFuncView = NO;
     }
     
     //add single tap in scrollView for hidden funcView
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenFuncView)];
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeNavView)];
     [_scrollView addGestureRecognizer:singleTap];
     
     //set rightNavItem
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"功能" style:UIBarButtonItemStyleBordered target:self action:@selector(changeFuncView)] autorelease];
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"全屏" style:UIBarButtonItemStyleBordered target:self action:@selector(hiddenNavView)] autorelease];
     
     // adView1
     _adView = [[YouMiView alloc] initWithContentSizeIdentifier:YouMiBannerContentSizeIdentifier320x50 delegate:nil];
-    _adView.frame = CGRectMake(0, 366, 320, 50);
+    _adView.frame = CGRectMake(0, 410, 320, 50);
     
     ////////////////[必填]///////////////////
     // 设置APP ID 和 APP Secret
@@ -295,7 +299,7 @@ BOOL hasFuncView = NO;
     
 	[self.view addSubview:_adView];
     
-    _funcView = [[UIView alloc] initWithFrame:CGRectMake(0, 416, 320, 60)];
+    _funcView = [[UIView alloc] initWithFrame:CGRectMake(0, 460, 320, 70)];  //10 pixel for animate
     _funcView.backgroundColor = [UIColor colorWithRed:0x3A/255 green:0x3A/255 blue:0x3A/255 alpha:0.5];
     _viewModeButton = [[UIButton alloc] initWithFrame:CGRectMake(45, 6, 90, 48)];
     _addMarkButton = [[UIButton alloc] initWithFrame:CGRectMake(185, 6, 90, 48)];
@@ -311,7 +315,7 @@ BOOL hasFuncView = NO;
     [_funcView addSubview:_addMarkButton];
     
     //set func view
-    [self loadFuncView];
+    [self loadViewByHasNav];
     
     [self.view addSubview:_funcView];
 }
