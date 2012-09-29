@@ -38,8 +38,11 @@
     [_loadingSpinner show:YES];
 }
 
-- (void) showBookViewControllerByInitWith:(NSArray *)markInfo{
-    _bookView=[[bookViewController alloc] initWithNibName:@"bookViewController" bundle:nil bookInfo:[markInfo objectAtIndex:0] pageNum:[[markInfo objectAtIndex:1] intValue] marks:_marks config:_config];
+- (void) showBookViewControllerByInitWith:(NSDictionary *)mark{
+    NSDictionary *book = [_index bookInfoAtIndex:[[mark objectForKey:MARKBOOKID] intValue]];
+    
+    _bookView=[[bookViewController alloc] initWithNibName:@"bookViewController" bundle:nil bookInfo:book pageNum:[[mark objectForKey:MARKPAGENUM] intValue] textStart:[[mark objectForKey:MARKSTARTPOS] intValue] marks:_marks config:_config];
+    
     [_loadingSpinner hide:YES];
     [self.navigationController pushViewController:_bookView animated:YES];
 }
@@ -85,12 +88,6 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
 - (void)dealloc {
     [_marks release];
     [_tableView release];
@@ -129,10 +126,10 @@
     UILabel* pageName = (UILabel*)[cell viewWithTag:2];
     UILabel* content = (UILabel*)[cell viewWithTag:3];
     
-    NSDictionary *bookInfo = [_index bookInfoAtIndex:[[mark objectForKey:Utils.MARKBOOKID] intValue]];
-    bookName.text = [bookInfo objectForKey:Utils.BOOKNAME];
-    pageName.text = [NSString stringWithFormat:@"第%d页", [[mark objectForKey:Utils.MARKPAGENUM] intValue]+1];
-    content.text = [[mark objectForKey:Utils.MARKCONTENT] stringByAppendingString:@"..."];
+    NSDictionary *bookInfo = [_index bookInfoAtIndex:[[mark objectForKey:MARKBOOKID] intValue]];
+    bookName.text = [bookInfo objectForKey:BOOKNAME];
+    pageName.text = [NSString stringWithFormat:@"第%d页", [[mark objectForKey:MARKPAGENUM] intValue]+1];
+    content.text = [[mark objectForKey:MARKCONTENT] stringByAppendingString:@"..."];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -142,9 +139,7 @@
 {
     [self showSpinner];
     NSDictionary *mark = [_marks markAtIndex:indexPath.row];
-    NSDictionary *book = [_index bookInfoAtIndex:[[mark objectForKey:Utils.MARKBOOKID] intValue]];
-    NSArray *markInfo = [NSArray arrayWithObjects:book, [mark objectForKey:Utils.MARKPAGENUM], nil];
-    [self performSelector:@selector(showBookViewControllerByInitWith:) withObject:markInfo afterDelay:0.0];
+    [self performSelector:@selector(showBookViewControllerByInitWith:) withObject:mark afterDelay:0.0];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

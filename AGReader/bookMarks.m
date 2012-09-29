@@ -39,9 +39,12 @@
         lineRange = [line rangeOfString:@"\t"];
         NSString *pageNum = [line substringToIndex:lineRange.location];
         line = [line substringFromIndex:lineRange.location+lineRange.length];
+        lineRange = [line rangeOfString:@"\t"];
+        NSString *startPos = [line substringToIndex:lineRange.location];
+        line = [line substringFromIndex:lineRange.location+lineRange.length];
         NSString *content = line;
         
-        NSDictionary *mark = [[NSDictionary alloc] initWithObjectsAndKeys:bookId, Utils.MARKBOOKID, pageNum, Utils.MARKPAGENUM, content, Utils.MARKCONTENT, nil];
+        NSDictionary *mark = [[NSDictionary alloc] initWithObjectsAndKeys:bookId, MARKBOOKID, pageNum, MARKPAGENUM, startPos, MARKSTARTPOS, content, MARKCONTENT, nil];
         [marks addObject:mark];
     }
     return marks;
@@ -66,7 +69,7 @@
     NSMutableString *str = [[NSMutableString alloc] init];
     for (int i=0; i<_elems.count; i++){
         NSDictionary *mark = [_elems objectAtIndex:i];
-        [str appendFormat:@"%@\t%@\t%@\n", [mark objectForKey:Utils.MARKBOOKID], [mark objectForKey:Utils.MARKPAGENUM], [mark objectForKey:Utils.MARKCONTENT]];
+        [str appendFormat:@"%@\t%@\t%@\t%@\n", [mark objectForKey:MARKBOOKID], [mark objectForKey:MARKPAGENUM], [mark objectForKey:MARKSTARTPOS], [mark objectForKey:MARKCONTENT]];
     }
     NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
     [data writeToFile:filePath atomically:NO];

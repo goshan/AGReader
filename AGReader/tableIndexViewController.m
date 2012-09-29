@@ -108,8 +108,8 @@
     UIImageView* bookImage = (UIImageView*)[cell viewWithTag:1];
     UILabel* bookName = (UILabel*)[cell viewWithTag:2];
     
-    [bookImage setImage:[UIImage imageNamed:[book objectForKey:Utils.IMAGEFILE]]];
-    bookName.text = [NSString stringWithString:[book objectForKey:Utils.BOOKNAME]];
+    [bookImage setImage:[UIImage imageNamed:[book objectForKey:IMAGEFILE]]];
+    bookName.text = [NSString stringWithString:[book objectForKey:BOOKNAME]];
     
     //make image round
     CALayer *layer = bookImage.layer;
@@ -123,7 +123,7 @@
 {
     [_parent showSpinner];
     NSDictionary *book = [_bookIndex bookInfoAtIndex:indexPath.row];
-    if(_parent.bookView && [_parent.bookView.book objectForKey:Utils.BOOKID] == [book objectForKey:Utils.BOOKID]){
+    if(_parent.bookView && [_parent.bookView.book objectForKey:BOOKID] == [book objectForKey:BOOKID]){
         [_parent showBookViewController];
     }
     else {

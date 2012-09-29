@@ -10,9 +10,9 @@
 
 
 float fontValue = 15.0f;
-int textViewHeight = 366;
+int textViewHeight = 410;
 int textViewWidth = 320;
-float leftInsets = 20.0;
+float leftInsets = 15.0;
 
 BOOL hasNavView = YES;
 
@@ -45,7 +45,7 @@ BOOL hasNavView = YES;
 
 - (int) getStartWith:(NSString *)text From:(int)end{
     UIFont *font = [UIFont systemFontOfSize:fontValue];
-    CGSize textViewSize = CGSizeMake(textViewWidth-40.0, textViewHeight*2);
+    CGSize textViewSize = CGSizeMake(textViewWidth-30.0, textViewHeight*2);
     NSString *temp = [[NSString alloc] init];
     for (int i=end-1; i>-1; i--){
         temp = [[text substringWithRange:NSMakeRange(i, 1)] stringByAppendingFormat:@"%@", temp];
@@ -59,7 +59,7 @@ BOOL hasNavView = YES;
 
 - (int) getEndWith:(NSString *)text From:(int)start{
     UIFont *font = [UIFont systemFontOfSize:fontValue];
-    CGSize textViewSize = CGSizeMake(textViewWidth-40.0, textViewHeight*2);
+    CGSize textViewSize = CGSizeMake(textViewWidth-30.0, textViewHeight*2);
     NSString *temp = [[NSString alloc] init];
     for (int i=start; i<text.length; i++){
         temp = [temp stringByAppendingFormat:@"%@", [text substringWithRange:NSMakeRange(i, 1)]];
@@ -164,10 +164,12 @@ BOOL hasNavView = YES;
 }
 
 - (void)addBookMark{
+    int startPos = [[[_pageIndex objectAtIndex:0] objectForKey:@"start"] intValue];
+    
     UITextView *view = [_views objectAtIndex:_showPageNum];
     NSString *content = [view.text substringToIndex:39];
     content = [content stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
-    NSDictionary *mark = [[NSDictionary alloc] initWithObjectsAndKeys:[_book objectForKey:Utils.BOOKID], Utils.MARKBOOKID, [NSString stringWithFormat:@"%d", _currentPageNum], Utils.MARKPAGENUM, content, Utils.MARKCONTENT, nil];
+    NSDictionary *mark = [[NSDictionary alloc] initWithObjectsAndKeys:[_book objectForKey:BOOKID], MARKBOOKID, [NSString stringWithFormat:@"%d", _currentPageNum], MARKPAGENUM, [NSString stringWithFormat:@"%d", startPos], MARKSTARTPOS, content, MARKCONTENT, nil];
     [_marks addMark:mark];
     MBProgressHUD* checkmark = [[[MBProgressHUD alloc] initWithView:self.view]autorelease];
     [self.view addSubview:checkmark];
@@ -275,7 +277,7 @@ BOOL hasNavView = YES;
         _currentPageNum = pageNum;
         _marks = marks;
         _config = config;
-        _content = [self loadStringFrom:[_book objectForKey:Utils.FILENAME] ofType:@"txt"];
+        _content = [self loadStringFrom:[_book objectForKey:FILENAME] ofType:@"txt"];
         int temp_page = pageNum == 0 ? pageNum : pageNum-1;
         _pageIndex = [[NSMutableArray alloc] init];
         [self genPageIndexFromStart:start withPage:temp_page];
@@ -298,7 +300,7 @@ BOOL hasNavView = YES;
 
 - (void)viewDidLoad
 {
-    self.title = [_book objectForKey:Utils.BOOKNAME];
+    self.title = [_book objectForKey:BOOKNAME];
     [super viewDidLoad];
     _scrollView.backgroundColor = [UIColor whiteColor];
     _scrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
