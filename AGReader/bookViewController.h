@@ -42,10 +42,10 @@
 
 @property(retain, nonatomic) NSDictionary *book;
 
-@property(retain, nonatomic) NSDictionary *pageIndex;
+@property(retain, nonatomic) NSMutableArray *pageIndex;
 
-@property(retain, nonatomic) NSArray *views;
+@property(retain, nonatomic) NSMutableArray *views;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookInfo:(NSDictionary *)book pageNum:(int)pageNum marks:(bookMarks *)marks config:(Config *)config;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookInfo:(NSDictionary *)book pageNum:(int)pageNum textStart:(int)start marks:(bookMarks *)marks config:(Config *)config;
 
 @end

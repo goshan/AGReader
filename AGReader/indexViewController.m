@@ -41,7 +41,7 @@ BOOL currentViewIsImage;
 }
 
 - (void) showBookViewControllerByInitWith:(NSDictionary *)book{
-    _bookView=[[bookViewController alloc] initWithNibName:@"bookViewController" bundle:nil bookInfo:book pageNum:0 marks:_bookMarks config:_config];
+    _bookView=[[bookViewController alloc] initWithNibName:@"bookViewController" bundle:nil bookInfo:book pageNum:0 textStart:0 marks:_bookMarks config:_config];
     [_loadingSpinner hide:YES];
     [self.navigationController pushViewController:_bookView animated:YES];
 }

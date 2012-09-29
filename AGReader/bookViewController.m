@@ -36,64 +36,129 @@ BOOL hasNavView = YES;
 
 
 
+//gen index and text view
 - (NSString *)loadStringFrom:(NSString *)resource ofType:(NSString *)type{
     NSString *filePath = [[NSBundle mainBundle] pathForResource:resource ofType:type];
     NSString *content = [[NSString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     return content;
 }
 
-- (NSDictionary *)loadPageIndexFrom:(NSString *)resource ofType:(NSString *)type{
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:resource ofType:type];
-    NSString *content  = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-    
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    while (1){
-        NSRange range = [content rangeOfString:@"\n"];
-        if (range.location == NSNotFound){
-            break;
+- (int) getStartWith:(NSString *)text From:(int)end{
+    UIFont *font = [UIFont systemFontOfSize:fontValue];
+    CGSize textViewSize = CGSizeMake(textViewWidth-40.0, textViewHeight*2);
+    NSString *temp = [[NSString alloc] init];
+    for (int i=end-1; i>-1; i--){
+        temp = [[text substringWithRange:NSMakeRange(i, 1)] stringByAppendingFormat:@"%@", temp];
+        CGSize size = [temp sizeWithFont:font constrainedToSize:textViewSize lineBreakMode:UILineBreakModeWordWrap];
+        if (size.height > textViewHeight){
+            return i+1;
         }
-        NSString *line = [content substringToIndex:range.location];
-        content = [content substringFromIndex:range.location+range.length];
-        
-        NSRange lineRange = [line rangeOfString:@"\t"];
-        int page = [[line substringToIndex:lineRange.location] intValue];
-        line = [line substringFromIndex:lineRange.location+lineRange.length];
-        lineRange = [line rangeOfString:@"\t"];
-        int start = [[line substringToIndex:lineRange.location] intValue];
-        line = [line substringFromIndex:lineRange.location+lineRange.length];
-        int end = [line intValue];
-        
-        NSArray *wordRange = [NSArray arrayWithObjects:[NSNumber numberWithInt:start], [NSNumber numberWithInt:end], nil];
-        [dict setObject:wordRange forKey:[NSNumber numberWithInt:page]];
     }
-    return dict;
+    return 0;
 }
 
-- (NSArray *)genTextViewsWithContent{
+- (int) getEndWith:(NSString *)text From:(int)start{
     UIFont *font = [UIFont systemFontOfSize:fontValue];
-    NSMutableArray *views = [[NSMutableArray alloc] init];
-    int basePage = 0;
-    if (_currentPageNum == 0){
-        basePage = 0;
+    CGSize textViewSize = CGSizeMake(textViewWidth-40.0, textViewHeight*2);
+    NSString *temp = [[NSString alloc] init];
+    for (int i=start; i<text.length; i++){
+        temp = [temp stringByAppendingFormat:@"%@", [text substringWithRange:NSMakeRange(i, 1)]];
+        CGSize size = [temp sizeWithFont:font constrainedToSize:textViewSize lineBreakMode:UILineBreakModeWordWrap];
+        if (size.height > textViewHeight){
+            return i;
+        }
+    }
+    return text.length;
+}
+
+- (void)genPageIndexFromStart:(int)startPos withPage:(int)pageStart{
+    int page = pageStart;
+    int start = startPos;
+    int end = 0;
+    
+    for (int i=0; i<3; i++){
+        end = [self getEndWith:_content From:start];
+        NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:start], @"start", [NSNumber numberWithInt:end], @"end", [NSNumber numberWithInt:page], @"page", nil];
+        [_pageIndex addObject:dict];
+        page ++;
+        start = end;
+    }
+}
+
+- (BOOL)genPageIndexPrev{
+    int page = [[[_pageIndex objectAtIndex:0] objectForKey:@"page"] intValue]-1;
+    int end = [[[_pageIndex objectAtIndex:0] objectForKey:@"start"] intValue];
+    if (end == 0 || _showPageNum == 2){
+        return NO;
     }
     else {
-        basePage = _currentPageNum - 1;
+        int start = [self getStartWith:_content From:end];
+        
+        NSDictionary *dict0 = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:start], @"start", [NSNumber numberWithInt:end], @"end", [NSNumber numberWithInt:page], @"page", nil];
+        NSDictionary *dict1 = [_pageIndex objectAtIndex:0];
+        NSDictionary *dict2 = [_pageIndex objectAtIndex:1];
+        
+        [_pageIndex removeAllObjects];
+        [_pageIndex addObject:dict0];
+        [_pageIndex addObject:dict1];
+        [_pageIndex addObject:dict2];
+        
+        return YES;
     }
+}
+
+- (BOOL)genPageIndexNext{
+    int page = [[[_pageIndex objectAtIndex:2] objectForKey:@"page"] intValue]+1;
+    int start = [[[_pageIndex objectAtIndex:2] objectForKey:@"end"] intValue];
+
+    if (start == _content.length || _showPageNum == 0){
+        return NO;
+    }
+    else {
+        int end = [self getEndWith:_content From:start];
+        
+        NSDictionary *dict0 = [_pageIndex objectAtIndex:1];
+        NSDictionary *dict1 = [_pageIndex objectAtIndex:2];
+        NSDictionary *dict2 = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:start], @"start", [NSNumber numberWithInt:end], @"end", [NSNumber numberWithInt:page], @"page", nil];
+        
+        [_pageIndex removeAllObjects];
+        [_pageIndex addObject:dict0];
+        [_pageIndex addObject:dict1];
+        [_pageIndex addObject:dict2];
+        
+        return YES;
+    }
+}
+
+- (void)initTextView{
+    UIFont *font = [UIFont systemFontOfSize:fontValue];
+    
     for (int i=0; i<3; i++){
-        int start = [[[_pageIndex objectForKey:[NSNumber numberWithInt:i+basePage]] objectAtIndex:0] intValue];
-        int end = [[[_pageIndex objectForKey:[NSNumber numberWithInt:i+basePage]] objectAtIndex:1] intValue];
-        NSString *text = [_content substringWithRange:NSMakeRange(start, end-start)];
         CGRect rect = CGRectMake(i*320, 0, textViewWidth, textViewHeight);
         goshanLabel *view = [[goshanLabel alloc] initWithFrame:rect andLeftInsets:leftInsets];
-        view.text = text;
         [view setFont:font];
         view.lineBreakMode = UILineBreakModeWordWrap;
         view.numberOfLines = 0;
-        [views addObject:view];
+        [_views addObject:view];
     }
-    return views;
 }
 
+- (void)printTextViewsWithPageIndex{
+    for (int i=0; i<_views.count; i++){
+        int start = [[[_pageIndex objectAtIndex:i] objectForKey:@"start"] intValue];
+        int end = [[[_pageIndex objectAtIndex:i] objectForKey:@"end"] intValue];
+        NSString *text = [_content substringWithRange:NSMakeRange(start, end-start)];
+        goshanLabel *view = [_views objectAtIndex:i];
+        view.text = text;
+    }
+}
+
+
+
+
+
+
+//view animate function
 - (int)reloadShowPageNum{
      return _scrollView.contentOffset.x/textViewWidth;
 }
@@ -202,7 +267,7 @@ BOOL hasNavView = YES;
 
 #define in .h file
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookInfo:(NSDictionary *)book pageNum:(int)pageNum marks:(bookMarks *)marks config:(Config *)config{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bookInfo:(NSDictionary *)book pageNum:(int)pageNum textStart:(int)start marks:(bookMarks *)marks config:(Config *)config{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -211,9 +276,13 @@ BOOL hasNavView = YES;
         _marks = marks;
         _config = config;
         _content = [self loadStringFrom:[_book objectForKey:Utils.FILENAME] ofType:@"txt"];
-        _pageIndex = [self loadPageIndexFrom:[_book objectForKey:Utils.PAGEINDEX] ofType:@"ind"];
+        int temp_page = pageNum == 0 ? pageNum : pageNum-1;
+        _pageIndex = [[NSMutableArray alloc] init];
+        [self genPageIndexFromStart:start withPage:temp_page];
         _totalPageNum = _pageIndex.count;
-        _views = [self genTextViewsWithContent];
+        _views = [[NSMutableArray alloc] init];
+        [self initTextView];
+        [self printTextViewsWithPageIndex];
         _showPageNum = pageNum == 0 ? 0 : 1;
     }
     return self;
@@ -379,45 +448,19 @@ BOOL hasNavView = YES;
     int newPageNum = [self reloadShowPageNum];
     if (newPageNum < _showPageNum){
         //prev page
-        UITextView *view0 = [_views objectAtIndex:0];
-        UITextView *view1 = [_views objectAtIndex:1];
-        UITextView *view2 = [_views objectAtIndex:2];
         _currentPageNum --;
-        if (_currentPageNum == 0){
-
-        }
-        else if (_currentPageNum == _totalPageNum-2){
-            
-        }
-        else {
-            int start = [[[_pageIndex objectForKey:[NSNumber numberWithInt:_currentPageNum-1]] objectAtIndex:0] intValue];
-            int end = [[[_pageIndex objectForKey:[NSNumber numberWithInt:_currentPageNum-1]] objectAtIndex:1] intValue];
-            NSString *text = [_content substringWithRange:NSMakeRange(start, end-start)];
-            view2.text = view1.text;
-            view1.text = view0.text;
-            view0.text = text;
+        BOOL mid = [self genPageIndexPrev];
+        [self printTextViewsWithPageIndex];
+        if (mid){
             [_scrollView setContentOffset:CGPointMake(textViewWidth, 0) animated:NO];
         }
     }
     else if(newPageNum > _showPageNum){
         //next page
-        UITextView *view0 = [_views objectAtIndex:0];
-        UITextView *view1 = [_views objectAtIndex:1];
-        UITextView *view2 = [_views objectAtIndex:2];
         _currentPageNum ++;
-        if (_currentPageNum == 1){
-            
-        }
-        else if (_currentPageNum == _totalPageNum-1){
-            
-        }
-        else {
-            int start = [[[_pageIndex objectForKey:[NSNumber numberWithInt:_currentPageNum+1]] objectAtIndex:0] intValue];
-            int end = [[[_pageIndex objectForKey:[NSNumber numberWithInt:_currentPageNum+1]] objectAtIndex:1] intValue];
-            NSString *text = [_content substringWithRange:NSMakeRange(start, end-start)];
-            view0.text = view1.text;
-            view1.text = view2.text;
-            view2.text = text;
+        BOOL mid = [self genPageIndexNext];
+        [self printTextViewsWithPageIndex];
+        if (mid){
             [_scrollView setContentOffset:CGPointMake(textViewWidth, 0) animated:NO];
         }
     }
